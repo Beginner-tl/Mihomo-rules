@@ -1,0 +1,120 @@
+# =============================================================================
+# sync-rules.yml —— 定时从原始上游同步规则、编译 mrs、发布到 release 分支
+# =============================================================================
+# 链路：cron/手动触发 → checkout main → 装 mihomo + python + pyyaml
+#       → 跑 scripts/build.sh → 把 dist/ 产物推到独立的 release 分支
+#       → Clash 客户端读 release 分支的 raw 链接
+name: Sync Rules
+
+on:
+  # 每天北京时间 00:30 自动构建（UTC 16:30）
+  schedule:
+    - cron: "30 16 * * *"
+  # 手动触发（GitHub 仓库 Actions 页 → Run workflow）
+  workflow_dispatch:
+  # main 分支的 scripts/ 或 custom/ 有改动时立即构建；改 README 不触发
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/sync-rules.yml'
+
+permissions:
+  contents: write    # 必需：否则无法 push 到 release 分支
+
+concurrency:
+  group: sync-rules
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # ---------- 1. 检出 main 分支 ----------
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # 需要完整历史以便切换 release 分支
+
+      # ---------- 2. 安装 Python 依赖（解析 sources.yaml）----------
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      # ---------- 3. 下载 mihomo（仅用 convert-ruleset 编译，不运行代理）----------
+      - name: Download mihomo
+        run: |
+          set -e
+          TAG=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
+                | grep -oP '"tag_name":\s*"\K[^"]+' | head -1)
+          echo "mihomo tag: $TAG"
+          URL="https://github.com/MetaCubeX/mihomo/releases/download/${TAG}/mihomo-linux-amd64-${TAG}.gz"
+          echo "downloading: $URL"
+          curl -fsSL -o mihomo.gz "$URL"
+          gunzip mihomo.gz
+          chmod +x mihomo
+          ./mihomo -v
+
+      # ---------- 4. 执行构建 ----------
+      - name: Build rulesets
+        env:
+          MIHOMO_BIN: ./mihomo
+        run: |
+          bash scripts/build.sh
+
+      # ---------- 5. 校验产物 ----------
+      - name: Verify output
+        run: |
+          echo "=== domain mrs ==="
+          ls -lh dist/mihomo/domain/ 2>/dev/null || echo "(空)"
+          echo "=== ip mrs ==="
+          ls -lh dist/mihomo/ip/ 2>/dev/null || echo "(空)"
+          TOTAL=$(find dist -name '*.mrs' | wc -l)
+          echo "共生成 $TOTAL 个 .mrs 文件"
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "::error::没有生成任何 mrs 文件，构建失败"
+            exit 1
+          fi
+
+      # ---------- 6. 发布到 release 分支 ----------
+      - name: Publish to release branch
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # release 分支不存在则创建（孤立分支，只放产物）
+          if git ls-remote --heads origin release | grep -q release; then
+            git checkout --orphan release
+          else
+            git checkout --orphan release
+          fi
+          git rm -rf . >/dev/null 2>&1 || true
+
+          # 只把 dist/ 产物提交进去（保持 raw 链接路径稳定：/release/mihomo/...）
+          mkdir -p mihomo
+          cp -r dist/mihomo/domain mihomo/domain
+          cp -r dist/mihomo/ip     mihomo/ip
+
+          # 附一份构建时间戳，便于排查新鲜度
+          date -u +"%Y-%m-%d %H:%M:%S UTC" > BUILD_TIME.txt
+
+          git add mihomo BUILD_TIME.txt
+          git commit -m "chore(rules): auto-sync $(date -u +%Y-%m-%d)" --allow-empty
+          git push origin release
+
+      # ---------- 7. 汇总 ----------
+      - name: Summary
+        run: |
+          cat <<EOF >> $GITHUB_STEP_SUMMARY
+          ## ✅ 规则同步完成
+
+          - 构建时间: $(date -u +"%Y-%m-%d %H:%M UTC")
+          - mrs 文件数: $(find dist -name '*.mrs' | wc -l)
+          - 发布分支: \`release\`
+          - 客户端引用路径: \`https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release/mihomo/<domain|ip>/<Name>.mrs\`
+          EOF

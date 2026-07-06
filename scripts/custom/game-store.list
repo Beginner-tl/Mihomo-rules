@@ -1,0 +1,45 @@
+# =============================================================================
+# 游戏商店/购买域名（浏览/购买，需要代理解锁区域限制）
+# =============================================================================
+# 用途：游戏平台的商店、社区、支付页面。这些通常有区域定价/锁区，需要走代理。
+#       默认走代理解锁（在 mihomo.yaml 的 游戏商店 组里调整）。
+#
+# 数据来源：v2fly/domain-list-community + 官方页面核对
+# 与 game-download.list 的关系：本文件只放商店/购买子域，CDN 下载子域在 game-download.list
+# ★ 注意：Steampowered 的 +. 通配会同时命中商店和部分 CDN，所以这里用精确子域名
+#   （CDN 已在 game-download 用 steamcontent/steamstatic 等独立域覆盖）
+# =============================================================================
+
+# ---------- Steam 商店/社区/支付 ----------
+store.steampowered.com
+steamcommunity.com
+checkout.steampowered.com
+s.team
+steam.tv
+
+# ---------- Epic 商店 ----------
+store.epicgames.com
+www.epicgames.com
+
+# ---------- PlayStation Store ----------
+store.playstation.com
+transact.playstation.com
+store.sonyentertainmentnetwork.com
+
+# ---------- Nintendo eShop / 账号 ----------
+www.nintendo.com
+accounts.nintendo.com
+my.nintendo.com
+
+# ---------- Xbox / Microsoft Store ----------
++.xbox.com
+www.microsoft.com
+account.microsoft.com
+login.microsoftonline.com
+
+# ---------- EA / Ubisoft / Battle.net 商店 ----------
+store.ubi.com
+www.origin.com
+store.origin.com
+shop.battle.net
+gear.blizzard.com

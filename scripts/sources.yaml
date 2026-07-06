@@ -1,0 +1,273 @@
+# =============================================================================
+# 上游规则映射表（本仓库的核心配置）
+# =============================================================================
+# 这里声明"每个分类 ← 来自哪些原始上游 URL"。build.sh 读取本文件，把所有上游
+# 抓下来、按格式解析、合并去重、追加 custom 补充，最终编译成 .mrs 推到 release 分支。
+#
+# ★ 重要：这里的 URL 全部直连「原始上游」，绝不经过 ddgksf2013 / 666OS / YYDS666
+#   等二次打包者。溯源关系：
+#     v2fly/domain-list-community → Loyalsoldier → MetaCubeX/meta-rules-dat (官方编译)
+#     blackmatrix7/ios_rule_script (668 个 App，一 App 一组)
+#
+# 每个分类字段说明：
+#   name      : 最终生成的 .mrs 文件名（如 Claude → Claude.mrs）
+#   behavior  : domain | ipcidr  （编译后的规则集类型，必须与该分类内容匹配）
+#   desc      : 说明（仅注释，不影响构建）
+#   sources   : 上游列表，每项含
+#                 url    : 上游 raw 链接
+#                 format : 解析格式
+#                            dnsmasq   — meta 的 .list（+.domain / 裸域名 / # 注释）
+#                            classical — blackmatrix7 的 .yaml（DOMAIN-SUFFIX,x 形式的 payload）
+#                            plain     — 纯域名行（每行一个域名，# 注释）
+#                            cidr      — 纯 CIDR 行（每行一个 CIDR，# 注释）
+#                 proxy  : 可选，访问该 URL 用的镜像（jsdelivr / ghproxy），留空走原始 raw
+#   custom    : 可选，追加 scripts/custom/ 下的私有规则文件（相对路径列表）
+#   note      : 可选，构建备注
+# =============================================================================
+
+# ---- URL 前缀锚点（pyyaml 会自动展开，build.sh 也能识别）----
+# ★ 锚点值结尾带 /，与 suffix（不带前导 /）拼接成完整 URL
+_meta_domain: &meta_domain https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/
+_meta_ip:     &meta_ip     https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/
+_bm:          &bm          https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/
+
+categories:
+
+  # ==================== 本地 / 私有 ====================
+  - name: Private
+    behavior: domain
+    desc: 本地/私有域名（直连）
+    sources:
+      - { url: *meta_domain, suffix: private.list,  format: dnsmasq }
+
+  - name: PrivateIP
+    behavior: ipcidr
+    desc: 本地/私有 IP 段（直连）
+    sources:
+      - { url: *meta_ip, suffix: private.list, format: cidr }
+
+  # ==================== 跨境电商（强制直连）====================
+  # ★ 你的定制需求：天猫国际商家中心 + 菜鸟国际 + 易被通用代理规则误伤的阿里系
+  #   单独成组并直连，rules 中置于「国外流量」之前，根治阿里域名被代理带走
+  - name: CrossBorder
+    behavior: domain
+    desc: 天猫国际/菜鸟国际/阿里系商家后台（强制直连）
+    sources:
+      - { url: *meta_domain, suffix: alibaba.list,    format: dnsmasq }   # meta 的 alibaba 全量
+      - { url: *bm, suffix: Alibaba/Alibaba.yaml,     format: classical }  # blackmatrix7 阿里系
+      - { url: *bm, suffix: Tmall/Tmall.yaml,         format: classical }  # 天猫
+    custom: [custom/crossborder-ecommerce.list]       # 菜鸟/天猫国际等手动补充
+
+  # ==================== 人工智能（默认走美国）====================
+  - name: Claude
+    behavior: domain
+    desc: Anthropic Claude
+    sources:
+      - { url: *meta_domain, suffix: anthropic.list,           format: dnsmasq }
+      - { url: *bm, suffix: Claude/Claude.yaml,                format: classical }
+
+  - name: ChatGPT
+    behavior: domain
+    desc: OpenAI / ChatGPT
+    sources:
+      - { url: *meta_domain, suffix: openai.list,             format: dnsmasq }
+      - { url: *bm, suffix: OpenAI/OpenAI.yaml,               format: classical }
+
+  - name: Gemini
+    behavior: domain
+    desc: Google Gemini（meta 无独立组，用 blackmatrix7）
+    sources:
+      - { url: *bm, suffix: Gemini/Gemini.yaml,               format: classical }
+
+  - name: Copilot
+    behavior: domain
+    desc: GitHub Copilot / Microsoft Copilot
+    sources:
+      - { url: *bm, suffix: Copilot/Copilot.yaml,             format: classical }
+
+  - name: Perplexity
+    behavior: domain
+    desc: Perplexity AI（blackmatrix7 无，用 meta）
+    sources:
+      - { url: *meta_domain, suffix: perplexity.list,         format: dnsmasq }
+
+  # ==================== 流媒体（按解锁区域）====================
+  - name: Netflix
+    behavior: domain
+    desc: Netflix
+    sources:
+      - { url: *meta_domain, suffix: netflix.list,            format: dnsmasq }
+      - { url: *bm, suffix: Netflix/Netflix.yaml,             format: classical }
+
+  - name: NetflixIP
+    behavior: ipcidr
+    desc: Netflix IP 段
+    sources:
+      - { url: *meta_ip, suffix: netflix.list,                format: cidr }
+
+  - name: YouTube
+    behavior: domain
+    desc: YouTube
+    sources:
+      - { url: *meta_domain, suffix: youtube.list,            format: dnsmasq }
+      - { url: *bm, suffix: YouTube/YouTube.yaml,             format: classical }
+
+  - name: Disney
+    behavior: domain
+    desc: Disney+
+    sources:
+      - { url: *meta_domain, suffix: disney.list,             format: dnsmasq }
+      - { url: *bm, suffix: Disney/Disney.yaml,               format: classical }
+
+  - name: Spotify
+    behavior: domain
+    desc: Spotify
+    sources:
+      - { url: *meta_domain, suffix: spotify.list,            format: dnsmasq }
+      - { url: *bm, suffix: Spotify/Spotify.yaml,             format: classical }
+
+  - name: TikTok
+    behavior: domain
+    desc: TikTok
+    sources:
+      - { url: *meta_domain, suffix: tiktok.list,             format: dnsmasq }
+      - { url: *bm, suffix: TikTok/TikTok.yaml,               format: classical }
+
+  - name: BiliBili
+    behavior: domain
+    desc: 哔哩哔哩（直连为主）
+    sources:
+      - { url: *meta_domain, suffix: bilibili.list,           format: dnsmasq }
+      - { url: *bm, suffix: BiliBili/BiliBili.yaml,           format: classical }
+
+  # ==================== 自建服务（EMBY / SNTP）====================
+  - name: Emby
+    behavior: domain
+    desc: EMBY 影视服务（主要靠 custom 自定义域名）
+    custom: [custom/emby.list]
+
+  # ==================== 即时通讯 / 社交 ====================
+  - name: Telegram
+    behavior: domain
+    desc: Telegram
+    sources:
+      - { url: *meta_domain, suffix: telegram.list,           format: dnsmasq }
+      - { url: *bm, suffix: Telegram/Telegram.yaml,           format: classical }
+
+  - name: TelegramIP
+    behavior: ipcidr
+    desc: Telegram IP 段
+    sources:
+      - { url: *meta_ip, suffix: telegram.list,               format: cidr }
+
+  - name: Twitter
+    behavior: domain
+    desc: Twitter / X
+    sources:
+      - { url: *meta_domain, suffix: twitter.list,            format: dnsmasq }
+      - { url: *bm, suffix: Twitter/Twitter.yaml,             format: classical }
+
+  - name: Instagram
+    behavior: domain
+    desc: Instagram
+    sources:
+      - { url: *meta_domain, suffix: instagram.list,          format: dnsmasq }
+      - { url: *bm, suffix: Instagram/Instagram.yaml,         format: classical }
+
+  - name: Facebook
+    behavior: domain
+    desc: Facebook
+    sources:
+      - { url: *meta_domain, suffix: facebook.list,           format: dnsmasq }
+      - { url: *bm, suffix: Facebook/Facebook.yaml,           format: classical }
+
+  # ==================== 开发服务 / 平台 ====================
+  - name: GitHub
+    behavior: domain
+    desc: GitHub
+    sources:
+      - { url: *meta_domain, suffix: github.list,             format: dnsmasq }
+      - { url: *bm, suffix: GitHub/GitHub.yaml,               format: classical }
+
+  - name: Google
+    behavior: domain
+    desc: Google 服务
+    sources:
+      - { url: *meta_domain, suffix: google.list,             format: dnsmasq }
+      - { url: *bm, suffix: Google/Google.yaml,               format: classical }
+
+  - name: GoogleIP
+    behavior: ipcidr
+    desc: Google IP 段
+    sources:
+      - { url: *meta_ip, suffix: google.list,                 format: cidr }
+
+  - name: Microsoft
+    behavior: domain
+    desc: Microsoft 服务
+    sources:
+      - { url: *meta_domain, suffix: microsoft.list,          format: dnsmasq }
+      - { url: *bm, suffix: Microsoft/Microsoft.yaml,         format: classical }
+
+  - name: Apple
+    behavior: domain
+    desc: Apple 服务
+    sources:
+      - { url: *meta_domain, suffix: apple.list,              format: dnsmasq }
+      - { url: *bm, suffix: Apple/Apple.yaml,                 format: classical }
+
+  # ==================== 游戏（拆下载 / 商店两组）====================
+  # ★ 你的定制需求：按子域名把「下载 CDN 大文件」与「商店/购买」拆开，分流方向可不同。
+  #   MRS 是域名级规则，无法按 URL 路径区分，所以靠 custom 手动精确指定子域名。
+  #   sources 留空 = 完全自建（最精确可控），不引入上游的 Steam/Game 大杂烩。
+  - name: GameDownload
+    behavior: domain
+    desc: 游戏下载 CDN（Steam/Epic/EA/Ubisoft/Battle.net/GOG/Rockstar 大文件）
+    custom: [custom/game-download.list]
+
+  - name: GameStore
+    behavior: domain
+    desc: 游戏商店/购买（各平台商店 + PS Store/eShop/Xbox）
+    custom: [custom/game-store.list]
+
+  # ==================== 货币平台 ====================
+  - name: Crypto
+    behavior: domain
+    desc: 加密货币交易所 / 货币平台
+    sources:
+      - { url: *meta_domain, suffix: category-cryptocurrency-currency.list, format: dnsmasq }
+      - { url: *bm, suffix: Binance/Binance.yaml,             format: classical }
+
+  # ==================== 网络测试 ====================
+  - name: Speedtest
+    behavior: domain
+    desc: 测速网站
+    sources:
+      - { url: *meta_domain, suffix: speedtest.list,          format: dnsmasq }
+
+  # ==================== 国外流量（兜底代理）====================
+  - name: Proxy
+    behavior: domain
+    desc: 国外流量兜底（geolocation-!cn）
+    sources:
+      - { url: *meta_domain, suffix: geolocation-!cn.list,    format: dnsmasq }
+
+  - name: ProxyIP
+    behavior: ipcidr
+    desc: 国外 IP 兜底（telegram + netflix + cloudfront 等非中国 IP）
+    sources:
+      - { url: *meta_ip, suffix: telegram.list,               format: cidr }
+
+  # ==================== 国内直连 ====================
+  - name: China
+    behavior: domain
+    desc: 国内域名（cn + geolocation-cn）
+    sources:
+      - { url: *meta_domain, suffix: cn.list,                 format: dnsmasq }
+      - { url: *meta_domain, suffix: geolocation-cn.list,     format: dnsmasq }
+
+  - name: ChinaIP
+    behavior: ipcidr
+    desc: 国内 IP 段（Loyalsoldier geoip-cn）
+    sources:
+      - { url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash-ipcidr.txt, format: cidr }

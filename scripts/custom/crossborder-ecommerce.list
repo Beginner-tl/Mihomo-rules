@@ -1,0 +1,51 @@
+# =============================================================================
+# 跨境电商直连域名（天猫国际 / 菜鸟国际 / AliExpress / Alibaba / WorldFirst）
+# =============================================================================
+# 用途：天猫国际商家后台 + 菜鸟国际物流 —— 这些国内可直接访问，强制直连
+#       放在 rules 的「国外流量」之前，根治阿里域名被通用代理规则带走的毛病
+#
+# 格式：每行一个域名
+#   +.domain     表示该域及其所有子域（等价 DOMAIN-SUFFIX）
+#   bare.domain  表示精确匹配该子域（等价 DOMAIN）
+# # 开头为注释，build.sh 会忽略
+# 数据来源：官方页面 + v2fly/domain-list-community 核对（见 README 溯源图）
+# =============================================================================
+
+# ---------- 天猫国际 ----------
++.tmall.hk
+merchant.tmall.hk
+www.tmall.hk
+
+# ---------- 菜鸟国际物流 ----------
+global.cainiao.com
+gpn.cainiao.com
+www.cainiao-globalshipping.com
+service.cainiao.com
+
+# ---------- AliExpress 卖家后台 ----------
+seller.aliexpress.com
+gsp.aliexpress.com
+sell.aliexpress.com
+login.aliexpress.com
++.aliexpress.com
+
+# ---------- Alibaba.com 国际站 ----------
+seller.alibaba.com
+i.alibaba.com
+login.alibaba.com
+register.alibaba.com
+sourcing.alibaba.com
++.alibaba.com
+
+# ---------- 万里汇 WorldFirst 跨境收款 ----------
+portal.worldfirst.com
+portal.worldfirst.com.cn
+www.worldfirst.com.cn
++.worldfirst.com
+
+# ---------- 阿里云国际版 ----------
+account.alibabacloud.com
+www.alibabacloud.com
+signin.alibabacloud.com
+signin-intl.aliyun.com
++.alibabacloud.com

@@ -1,0 +1,18 @@
+# 本地工具与缓存
+.mihomo/
+*.exe
+tmp/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# 构建中间产物（最终 .mrs 由 Action 发布到 release 分支，不入 main）
+build/
+dist/
+
+# 个人订阅 / 节点信息 —— 切勿提交
+*.sub.yaml
+secrets/

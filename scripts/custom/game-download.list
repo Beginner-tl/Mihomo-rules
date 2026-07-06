@@ -1,0 +1,66 @@
+# =============================================================================
+# 游戏下载 CDN 域名（大文件下载，倾向直连/低延迟节点）
+# =============================================================================
+# 用途：游戏平台的下载/更新 CDN 流量。这些是大文件分发，走代理通常更慢且费流量，
+#       默认走直连或就近低延迟节点（在 mihomo.yaml 的 游戏下载 组里调整）。
+#
+# 数据来源：v2fly/domain-list-community + uklans/cache-domains（双源核对）
+# 与 game-store.list 的关系：本文件只放 CDN/下载子域，商店/购买子域在 game-store.list
+# ★ MRS 是域名级规则，无法按 URL 路径区分，所以靠子域名精确归类。
+# =============================================================================
+
+# ---------- Steam 内容分发（CDN）----------
++.steamcontent.com
++.steamserver.net
++.steamstatic.com
++.steamgames.com
++.steamusercontent.com
+lancache.steamcontent.com
+
+# ---------- Epic Games 下载 CDN ----------
+cdn.epicgames.com
+cdn1.epicgames.com
+cdn2.epicgames.com
+download.epicgames.com
+download2.epicgames.com
+download3.epicgames.com
+download4.epicgames.com
+cdn.unrealengine.com
+cdn1.unrealengine.com
+cdn2.unrealengine.com
+cdn3.unrealengine.com
+cloudflare.epicgamescdn.com
++.epicgamescdn.com
+
+# ---------- EA / Origin 下载 ----------
+origin-a.akamaihd.net
+lvlt.cdn.ea.com
+ssl-lvlt.cdn.ea.com
+cdn-patch.swtor.com
+
+# ---------- Ubisoft Connect 下载 ----------
+cdn.ubi.com
+cdn-ovi.ubi.com
+cdn-ovi-file01.ubi.com
+
+# ---------- Battle.net / Blizzard 下载 ----------
++.cdn.blizzard.com
+cdn.blizzard.com
+dist.blizzard.com
+download.battle.net
+blzddist1-a.akamaihd.net
+blzddist2-a.akamaihd.net
+blzddist3-a.akamaihd.net
+blzddistkr1-a.akamaihd.net
+blizzard.nefficient.co.kr
+
+# ---------- GOG 下载 ----------
+gog-cdn.akamaized.net
+gog-cdn-lumen.secure2.footprint.net
+gog-cdn.lulzpart.eu
+
+# ---------- Rockstar 下载 ----------
+patches.rockstargames.com
+gamedownloads-rockstargames-com.akamaized.net
+media-rockstargames-com.akamaized.net
+videos-rockstargames-com.akamaized.net
