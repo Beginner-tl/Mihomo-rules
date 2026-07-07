@@ -81,31 +81,35 @@ jobs:
           fi
 
       # ---------- 6. 发布到 release 分支 ----------
+      # 策略：用一个全新的孤立工作区（release-ws）放产物，避免与 main 工作区的
+      #       build 残留（dist/）冲突。产物路径固定为 release 分支根的 mihomo/。
       - name: Publish to release branch
         run: |
           set -e
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # release 分支不存在则创建（孤立分支，只放产物）
-          if git ls-remote --heads origin release | grep -q release; then
-            git checkout --orphan release
-          else
-            git checkout --orphan release
-          fi
+          # 1) 把编译产物暂存到工作区外（dist 会被新分支的工作区清理影响）
+          rm -rf /tmp/publish && mkdir -p /tmp/publish/mihomo
+          cp -r dist/mihomo/domain /tmp/publish/mihomo/domain
+          cp -r dist/mihomo/ip     /tmp/publish/mihomo/ip
+          date -u +"%Y-%m-%d %H:%M:%S UTC" > /tmp/publish/BUILD_TIME.txt
+
+          # 2) 创建干净的孤立分支（不继承任何父提交，内容完全由我们控制）
+          git checkout --orphan release
+          # 清空工作区所有文件（含未跟踪的 dist/、源码等），确保 release 分支只有产物
           git rm -rf . >/dev/null 2>&1 || true
+          find . -mindepth 1 -not -path './.git*' -delete 2>/dev/null || true
 
-          # 只把 dist/ 产物提交进去（保持 raw 链接路径稳定：/release/mihomo/...）
-          mkdir -p mihomo
-          cp -r dist/mihomo/domain mihomo/domain
-          cp -r dist/mihomo/ip     mihomo/ip
+          # 3) 把产物放进来
+          cp -r /tmp/publish/mihomo ./mihomo
+          cp    /tmp/publish/BUILD_TIME.txt ./BUILD_TIME.txt
+          rm -rf /tmp/publish
 
-          # 附一份构建时间戳，便于排查新鲜度
-          date -u +"%Y-%m-%d %H:%M:%S UTC" > BUILD_TIME.txt
-
+          # 4) 提交并强制推送（release 分支每次都是全量覆盖，无需合并历史）
           git add mihomo BUILD_TIME.txt
           git commit -m "chore(rules): auto-sync $(date -u +%Y-%m-%d)" --allow-empty
-          git push origin release
+          git push --force origin release
 
       # ---------- 7. 汇总 ----------
       - name: Summary
