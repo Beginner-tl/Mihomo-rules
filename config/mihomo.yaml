@@ -142,61 +142,64 @@ proxy-groups:
 # rule-providers —— 全部指向你的 release 分支（自建规则集）
 # =============================================================================
 rule-providers:
-  # 锚点：自建 mrs 的标准加载方式
-
+  # ★ 私有仓库认证头：把 <YOUR_GITHUB_TOKEN> 替换为你的 GitHub PAT（fine-grained，只需 contents:read 权限）
+  #   生成地址: https://github.com/settings/tokens?type=beta → 限定本仓库 → 只读
+  _gh_header: &gh_header
+    Authorization: token <YOUR_GITHUB_TOKEN>
+    Accept: application/vnd.github.raw+json
   # —— 本地/私有 ——
-  Private:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Private.mrs,        path: ./ruleset/Private.mrs }
-  PrivateIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/PrivateIP.mrs,          path: ./ruleset/PrivateIP.mrs, no-resolve: true }
+  Private:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Private.mrs?ref=release",        path: ./ruleset/Private.mrs , header: *gh_header }
+  PrivateIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/PrivateIP.mrs?ref=release",          path: ./ruleset/PrivateIP.mrs, no-resolve: true , header: *gh_header }
 
   # —— 🛒 跨境电商（强制直连）——
-  CrossBorder:    { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/CrossBorder.mrs,    path: ./ruleset/CrossBorder.mrs }
+  CrossBorder:    { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/CrossBorder.mrs?ref=release",    path: ./ruleset/CrossBorder.mrs , header: *gh_header }
 
   # —— 🤖 人工智能 ——
-  Claude:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Claude.mrs,         path: ./ruleset/Claude.mrs }
-  ChatGPT:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/ChatGPT.mrs,        path: ./ruleset/ChatGPT.mrs }
-  Gemini:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Gemini.mrs,         path: ./ruleset/Gemini.mrs }
-  Copilot:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Copilot.mrs,        path: ./ruleset/Copilot.mrs }
-  Perplexity:     { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Perplexity.mrs,     path: ./ruleset/Perplexity.mrs }
+  Claude:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Claude.mrs?ref=release",         path: ./ruleset/Claude.mrs , header: *gh_header }
+  ChatGPT:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/ChatGPT.mrs?ref=release",        path: ./ruleset/ChatGPT.mrs , header: *gh_header }
+  Gemini:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Gemini.mrs?ref=release",         path: ./ruleset/Gemini.mrs , header: *gh_header }
+  Copilot:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Copilot.mrs?ref=release",        path: ./ruleset/Copilot.mrs , header: *gh_header }
+  Perplexity:     { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Perplexity.mrs?ref=release",     path: ./ruleset/Perplexity.mrs , header: *gh_header }
 
   # —— 🎬 流媒体 ——
-  Netflix:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Netflix.mrs,        path: ./ruleset/Netflix.mrs }
-  NetflixIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/NetflixIP.mrs,          path: ./ruleset/NetflixIP.mrs, no-resolve: true }
-  YouTube:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/YouTube.mrs,        path: ./ruleset/YouTube.mrs }
-  Disney:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Disney.mrs,         path: ./ruleset/Disney.mrs }
-  Spotify:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Spotify.mrs,        path: ./ruleset/Spotify.mrs }
-  TikTok:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/TikTok.mrs,         path: ./ruleset/TikTok.mrs }
-  BiliBili:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/BiliBili.mrs,       path: ./ruleset/BiliBili.mrs }
-  Emby:           { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Emby.mrs,           path: ./ruleset/Emby.mrs }
+  Netflix:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Netflix.mrs?ref=release",        path: ./ruleset/Netflix.mrs , header: *gh_header }
+  NetflixIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/NetflixIP.mrs?ref=release",          path: ./ruleset/NetflixIP.mrs, no-resolve: true , header: *gh_header }
+  YouTube:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/YouTube.mrs?ref=release",        path: ./ruleset/YouTube.mrs , header: *gh_header }
+  Disney:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Disney.mrs?ref=release",         path: ./ruleset/Disney.mrs , header: *gh_header }
+  Spotify:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Spotify.mrs?ref=release",        path: ./ruleset/Spotify.mrs , header: *gh_header }
+  TikTok:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/TikTok.mrs?ref=release",         path: ./ruleset/TikTok.mrs , header: *gh_header }
+  BiliBili:       { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/BiliBili.mrs?ref=release",       path: ./ruleset/BiliBili.mrs , header: *gh_header }
+  Emby:           { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Emby.mrs?ref=release",           path: ./ruleset/Emby.mrs , header: *gh_header }
 
   # —— 💬 即时通讯 / 社交 ——
-  Telegram:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Telegram.mrs,       path: ./ruleset/Telegram.mrs }
-  TelegramIP:     { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/TelegramIP.mrs,         path: ./ruleset/TelegramIP.mrs, no-resolve: true }
-  Twitter:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Twitter.mrs,        path: ./ruleset/Twitter.mrs }
-  Instagram:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Instagram.mrs,      path: ./ruleset/Instagram.mrs }
-  Facebook:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Facebook.mrs,       path: ./ruleset/Facebook.mrs }
+  Telegram:       { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Telegram.mrs?ref=release",       path: ./ruleset/Telegram.mrs , header: *gh_header }
+  TelegramIP:     { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/TelegramIP.mrs?ref=release",         path: ./ruleset/TelegramIP.mrs, no-resolve: true , header: *gh_header }
+  Twitter:        { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Twitter.mrs?ref=release",        path: ./ruleset/Twitter.mrs , header: *gh_header }
+  Instagram:      { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Instagram.mrs?ref=release",      path: ./ruleset/Instagram.mrs , header: *gh_header }
+  Facebook:       { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Facebook.mrs?ref=release",       path: ./ruleset/Facebook.mrs , header: *gh_header }
 
   # —— 💻 开发服务 / 平台 ——
-  GitHub:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GitHub.mrs,         path: ./ruleset/GitHub.mrs }
-  Google:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Google.mrs,         path: ./ruleset/Google.mrs }
-  GoogleIP:       { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/GoogleIP.mrs,           path: ./ruleset/GoogleIP.mrs, no-resolve: true }
-  Microsoft:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Microsoft.mrs,      path: ./ruleset/Microsoft.mrs }
-  Apple:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Apple.mrs,          path: ./ruleset/Apple.mrs }
+  GitHub:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/GitHub.mrs?ref=release",         path: ./ruleset/GitHub.mrs , header: *gh_header }
+  Google:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Google.mrs?ref=release",         path: ./ruleset/Google.mrs , header: *gh_header }
+  GoogleIP:       { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/GoogleIP.mrs?ref=release",           path: ./ruleset/GoogleIP.mrs, no-resolve: true , header: *gh_header }
+  Microsoft:      { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Microsoft.mrs?ref=release",      path: ./ruleset/Microsoft.mrs , header: *gh_header }
+  Apple:          { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Apple.mrs?ref=release",          path: ./ruleset/Apple.mrs , header: *gh_header }
 
   # —— 🎮 游戏（拆下载 / 商店）——
-  GameDownload:   { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownload.mrs,   path: ./ruleset/GameDownload.mrs }
-  GameStore:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameStore.mrs,      path: ./ruleset/GameStore.mrs }
+  GameDownload:   { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/GameDownload.mrs?ref=release",   path: ./ruleset/GameDownload.mrs , header: *gh_header }
+  GameStore:      { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/GameStore.mrs?ref=release",      path: ./ruleset/GameStore.mrs , header: *gh_header }
 
   # —— 💰 货币平台 ——
-  Crypto:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Crypto.mrs,         path: ./ruleset/Crypto.mrs }
+  Crypto:         { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Crypto.mrs?ref=release",         path: ./ruleset/Crypto.mrs , header: *gh_header }
 
   # —— 网络测试 ——
-  Speedtest:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Speedtest.mrs,      path: ./ruleset/Speedtest.mrs }
+  Speedtest:      { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Speedtest.mrs?ref=release",      path: ./ruleset/Speedtest.mrs , header: *gh_header }
 
   # —— 国外/国内兜底 ——
-  Proxy:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Proxy.mrs,          path: ./ruleset/Proxy.mrs }
-  ProxyIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/ProxyIP.mrs,            path: ./ruleset/ProxyIP.mrs, no-resolve: true }
-  China:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/China.mrs,          path: ./ruleset/China.mrs }
-  ChinaIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/ChinaIP.mrs,            path: ./ruleset/ChinaIP.mrs, no-resolve: true }
+  Proxy:          { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/Proxy.mrs?ref=release",          path: ./ruleset/Proxy.mrs , header: *gh_header }
+  ProxyIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/ProxyIP.mrs?ref=release",            path: ./ruleset/ProxyIP.mrs, no-resolve: true , header: *gh_header }
+  China:          { type: http, behavior: domain, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/domain/China.mrs?ref=release",          path: ./ruleset/China.mrs , header: *gh_header }
+  ChinaIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: "https://api.github.com/repos/Beginner-tl/clash-rules/contents/mihomo/ip/ChinaIP.mrs?ref=release",            path: ./ruleset/ChinaIP.mrs, no-resolve: true , header: *gh_header }
 
 # =============================================================================
 # rules —— 规则顺序（★ 从上到下匹配，命中即停，顺序至关重要）
@@ -286,7 +289,7 @@ keep-alive-interval: 15
 keep-alive-idle: 600
 
 # 控制面板
-external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
+external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 external-ui-name: zashboard
 external-ui: ui
 external-controller: 127.0.0.1:9090
