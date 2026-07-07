@@ -3,14 +3,14 @@
 # =============================================================================
 # ★ 本文件引用你自建仓库 release 分支的 .mrs 规则集，绕开所有二次中转商。
 # ★ 使用前请替换两处：
-#    1. <YOUR_GITHUB_USERNAME>  → 你的 GitHub 用户名（rule-providers 的 url）
+#    1. Beginner-tl  → 你的 GitHub 用户名（rule-providers 的 url）
 #    2. <YOUR_SUB_URL>          → 你的机场订阅链接（proxy-providers，仅本地，勿上传）
 #
 # 内核要求：mihomo (Clash Verge Rev / Clash Meta)
 # =============================================================================
 
 # >>>>>>>>>>>>>>>>>>>>>>>> 【必填·你的仓库地址】<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-# 把下面 rule-providers 段里所有 <YOUR_GITHUB_USERNAME> 替换成你的 GitHub 账号
+# 把下面 rule-providers 段里所有 Beginner-tl 替换成你的 GitHub 账号
 # （仓库名默认 my-rules，若改名也要同步替换）
 # ===========================================================================
 
@@ -93,9 +93,6 @@ proxy-groups:
   # —— 本地 / 私有 / 网络测试 ——
   - { name: 网络测试, type: select, proxies: *oversea,    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Speedtest.png }
 
-  # —— 🛒 跨境电商（天猫国际/菜鸟/阿里商家后台 → 强制直连）——
-  - { name: 跨境电商, type: select, proxies: *direct,      icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/China_Map.png }
-
   # —— 🤖 人工智能（默认走美国）——
   - { name: 人工智能, type: select, proxies: *us-first,    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png }
   - { name: Claude,   type: select, proxies: *us-first,    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/AI.png }
@@ -148,58 +145,58 @@ rule-providers:
   # 锚点：自建 mrs 的标准加载方式
 
   # —— 本地/私有 ——
-  Private:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Private.mrs,        path: ./ruleset/Private.mrs }
-  PrivateIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/PrivateIP.mrs,          path: ./ruleset/PrivateIP.mrs, no-resolve: true }
+  Private:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Private.mrs,        path: ./ruleset/Private.mrs }
+  PrivateIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/PrivateIP.mrs,          path: ./ruleset/PrivateIP.mrs, no-resolve: true }
 
   # —— 🛒 跨境电商（强制直连）——
-  CrossBorder:    { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/CrossBorder.mrs,    path: ./ruleset/CrossBorder.mrs }
+  CrossBorder:    { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/CrossBorder.mrs,    path: ./ruleset/CrossBorder.mrs }
 
   # —— 🤖 人工智能 ——
-  Claude:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Claude.mrs,         path: ./ruleset/Claude.mrs }
-  ChatGPT:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/ChatGPT.mrs,        path: ./ruleset/ChatGPT.mrs }
-  Gemini:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Gemini.mrs,         path: ./ruleset/Gemini.mrs }
-  Copilot:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Copilot.mrs,        path: ./ruleset/Copilot.mrs }
-  Perplexity:     { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Perplexity.mrs,     path: ./ruleset/Perplexity.mrs }
+  Claude:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Claude.mrs,         path: ./ruleset/Claude.mrs }
+  ChatGPT:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/ChatGPT.mrs,        path: ./ruleset/ChatGPT.mrs }
+  Gemini:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Gemini.mrs,         path: ./ruleset/Gemini.mrs }
+  Copilot:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Copilot.mrs,        path: ./ruleset/Copilot.mrs }
+  Perplexity:     { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Perplexity.mrs,     path: ./ruleset/Perplexity.mrs }
 
   # —— 🎬 流媒体 ——
-  Netflix:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Netflix.mrs,        path: ./ruleset/Netflix.mrs }
-  NetflixIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/NetflixIP.mrs,          path: ./ruleset/NetflixIP.mrs, no-resolve: true }
-  YouTube:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/YouTube.mrs,        path: ./ruleset/YouTube.mrs }
-  Disney:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Disney.mrs,         path: ./ruleset/Disney.mrs }
-  Spotify:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Spotify.mrs,        path: ./ruleset/Spotify.mrs }
-  TikTok:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/TikTok.mrs,         path: ./ruleset/TikTok.mrs }
-  BiliBili:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/BiliBili.mrs,       path: ./ruleset/BiliBili.mrs }
-  Emby:           { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Emby.mrs,           path: ./ruleset/Emby.mrs }
+  Netflix:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Netflix.mrs,        path: ./ruleset/Netflix.mrs }
+  NetflixIP:      { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/NetflixIP.mrs,          path: ./ruleset/NetflixIP.mrs, no-resolve: true }
+  YouTube:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/YouTube.mrs,        path: ./ruleset/YouTube.mrs }
+  Disney:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Disney.mrs,         path: ./ruleset/Disney.mrs }
+  Spotify:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Spotify.mrs,        path: ./ruleset/Spotify.mrs }
+  TikTok:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/TikTok.mrs,         path: ./ruleset/TikTok.mrs }
+  BiliBili:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/BiliBili.mrs,       path: ./ruleset/BiliBili.mrs }
+  Emby:           { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Emby.mrs,           path: ./ruleset/Emby.mrs }
 
   # —— 💬 即时通讯 / 社交 ——
-  Telegram:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Telegram.mrs,       path: ./ruleset/Telegram.mrs }
-  TelegramIP:     { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/TelegramIP.mrs,         path: ./ruleset/TelegramIP.mrs, no-resolve: true }
-  Twitter:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Twitter.mrs,        path: ./ruleset/Twitter.mrs }
-  Instagram:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Instagram.mrs,      path: ./ruleset/Instagram.mrs }
-  Facebook:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Facebook.mrs,       path: ./ruleset/Facebook.mrs }
+  Telegram:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Telegram.mrs,       path: ./ruleset/Telegram.mrs }
+  TelegramIP:     { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/TelegramIP.mrs,         path: ./ruleset/TelegramIP.mrs, no-resolve: true }
+  Twitter:        { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Twitter.mrs,        path: ./ruleset/Twitter.mrs }
+  Instagram:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Instagram.mrs,      path: ./ruleset/Instagram.mrs }
+  Facebook:       { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Facebook.mrs,       path: ./ruleset/Facebook.mrs }
 
   # —— 💻 开发服务 / 平台 ——
-  GitHub:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/GitHub.mrs,         path: ./ruleset/GitHub.mrs }
-  Google:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Google.mrs,         path: ./ruleset/Google.mrs }
-  GoogleIP:       { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/GoogleIP.mrs,           path: ./ruleset/GoogleIP.mrs, no-resolve: true }
-  Microsoft:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Microsoft.mrs,      path: ./ruleset/Microsoft.mrs }
-  Apple:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Apple.mrs,          path: ./ruleset/Apple.mrs }
+  GitHub:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GitHub.mrs,         path: ./ruleset/GitHub.mrs }
+  Google:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Google.mrs,         path: ./ruleset/Google.mrs }
+  GoogleIP:       { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/GoogleIP.mrs,           path: ./ruleset/GoogleIP.mrs, no-resolve: true }
+  Microsoft:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Microsoft.mrs,      path: ./ruleset/Microsoft.mrs }
+  Apple:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Apple.mrs,          path: ./ruleset/Apple.mrs }
 
   # —— 🎮 游戏（拆下载 / 商店）——
-  GameDownload:   { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/GameDownload.mrs,   path: ./ruleset/GameDownload.mrs }
-  GameStore:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/GameStore.mrs,      path: ./ruleset/GameStore.mrs }
+  GameDownload:   { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownload.mrs,   path: ./ruleset/GameDownload.mrs }
+  GameStore:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameStore.mrs,      path: ./ruleset/GameStore.mrs }
 
   # —— 💰 货币平台 ——
-  Crypto:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Crypto.mrs,         path: ./ruleset/Crypto.mrs }
+  Crypto:         { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Crypto.mrs,         path: ./ruleset/Crypto.mrs }
 
   # —— 网络测试 ——
-  Speedtest:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Speedtest.mrs,      path: ./ruleset/Speedtest.mrs }
+  Speedtest:      { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Speedtest.mrs,      path: ./ruleset/Speedtest.mrs }
 
   # —— 国外/国内兜底 ——
-  Proxy:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/Proxy.mrs,          path: ./ruleset/Proxy.mrs }
-  ProxyIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/ProxyIP.mrs,            path: ./ruleset/ProxyIP.mrs, no-resolve: true }
-  China:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/domain/China.mrs,          path: ./ruleset/China.mrs }
-  ChinaIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/my-rules/release/mihomo/ip/ChinaIP.mrs,            path: ./ruleset/ChinaIP.mrs, no-resolve: true }
+  Proxy:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Proxy.mrs,          path: ./ruleset/Proxy.mrs }
+  ProxyIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/ProxyIP.mrs,            path: ./ruleset/ProxyIP.mrs, no-resolve: true }
+  China:          { type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/China.mrs,          path: ./ruleset/China.mrs }
+  ChinaIP:        { type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/ChinaIP.mrs,            path: ./ruleset/ChinaIP.mrs, no-resolve: true }
 
 # =============================================================================
 # rules —— 规则顺序（★ 从上到下匹配，命中即停，顺序至关重要）
@@ -218,8 +215,8 @@ rules:
   - DOMAIN-SUFFIX,alibabacloud.com,EMBY
   - RULE-SET,Emby,EMBY
 
-  # 3. 🛒 跨境电商（天猫国际/菜鸟/阿里商家后台 → 直连）★ 置于国外流量之前
-  - RULE-SET,CrossBorder,跨境电商
+  # 3. 🛒 跨境电商（天猫国际/菜鸟/阿里商家后台 → 直连）★ 置于国外流量之前，根治阿里被代理带走
+  - RULE-SET,CrossBorder,DIRECT
 
   # 4. 网络测试
   - RULE-SET,Speedtest,网络测试
