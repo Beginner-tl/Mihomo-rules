@@ -162,12 +162,13 @@ build_category() {
   done
 
   # 2. 追加 custom/*.list（这些是 plain 格式，每行一条）
+  #    路径约定：sources.yaml 里的 custom 值相对于 scripts/ 目录（如 custom/emby.list）
   local n_custom; n_custom=$(python3 -c "import json;d=json.loads('''$spec''');print(len(d['custom']))")
   local j=0
   while [[ $j -lt $n_custom ]]; do
     local cf
     cf=$(python3 -c "import json;d=json.loads('''$spec''');print(d['custom'][$j])")
-    local cfp="$CUSTOM_DIR/$cf"
+    local cfp="$SCRIPT_DIR/$cf"
     if [[ -f "$cfp" ]]; then
       if [[ "$behavior" == "ipcidr" ]]; then
         parse_cidrs "$cfp" plain >> "$raw"

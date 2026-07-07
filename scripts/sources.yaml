@@ -268,6 +268,7 @@ categories:
 
   - name: ChinaIP
     behavior: ipcidr
-    desc: 国内 IP 段（Loyalsoldier geoip-cn）
+    desc: 国内 IP 段（meta 官方 geoip cn）
     sources:
+      - { url: *meta_ip, suffix: cn.list, format: cidr }
       - { url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/clash-ipcidr.txt, format: cidr }
