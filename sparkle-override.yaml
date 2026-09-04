@@ -13,13 +13,6 @@
 
 +proxy-groups:
   # 路由策略
-  - name: 广告拦截
-    type: select
-    proxies:
-      - REJECT-DROP
-      - REJECT
-      - DIRECT
-
   - name: 网络测试
     type: select
     proxies:
@@ -460,8 +453,6 @@
 # 直接替换原订阅的 rules；如果你想保留原订阅规则，请改成 +rules，
 # 但要注意下面的 MATCH 会让其后的规则不可达。
 rules:
-  - RULE-SET,Tracking,广告拦截
-  - RULE-SET,Advertising,广告拦截
 
   - RULE-SET,Private,DIRECT
   - RULE-SET,PrivateIP,DIRECT,no-resolve
@@ -528,8 +519,6 @@ rules:
 
 # 远程 MRS 规则集（由本仓库镜像并发布）
 rule-providers:
-  Tracking: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Tracking.mrs}
-  Advertising: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Advertising.mrs}
   Private: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Private.mrs}
   Apple: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Apple.mrs}
   Telegram: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Telegram.mrs}
