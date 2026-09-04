@@ -89,6 +89,31 @@ def read_local_entries(files: list[str]) -> list[str]:
     return sorted(entries)
 
 
+def normalize_domain_rule(value: str) -> str:
+    value = value.strip().lower()
+    if value.startswith("+."):
+        value = value[2:]
+    elif value.startswith("."):
+        value = value[1:]
+    return value.rstrip(".")
+
+
+def is_excluded_domain(entry: str, exclusion: str) -> bool:
+    domain = normalize_domain_rule(entry)
+    suffix = normalize_domain_rule(exclusion)
+    return domain == suffix or domain.endswith("." + suffix)
+
+
+def filter_entries(entries: set[str], exclusions: list[str]) -> list[str]:
+    if not exclusions:
+        return sorted(entries)
+    return sorted(
+        entry
+        for entry in entries
+        if not any(is_excluded_domain(entry, exclusion) for exclusion in exclusions)
+    )
+
+
 def write_readable_txt(
     destination: Path,
     name: str,
@@ -223,8 +248,12 @@ def main() -> None:
 
     derived_count = 0
     for item in config.get("derived", []):
-        entries = set(read_entries(fetch_text(item["source_url"])))
+        entries: set[str] = set()
+        if item.get("source_url"):
+            entries.update(read_entries(fetch_text(item["source_url"])))
         entries.update(read_local_entries(item.get("files", [])))
+        exclusions = read_local_entries(item.get("exclude_files", []))
+        entries = set(filter_entries(entries, exclusions))
         derived_count += compile_mrs(
             item["name"],
             item["behavior"],

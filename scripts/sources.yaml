@@ -20,6 +20,8 @@ derived:
   - name: GameStore
     behavior: domain
     source_url: https://raw.githubusercontent.com/666OS/rules/release/mihomo/domain/Games.txt
+    exclude_files:
+      - scripts/custom/game-domestic.list
     files:
       - scripts/custom/game-store.list
 
