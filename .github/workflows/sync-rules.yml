@@ -1,26 +1,20 @@
 # =============================================================================
-# sync-rules.yml —— 定时从原始上游同步规则、编译 mrs、发布到 release 分支
+# sync-rules.yml —— 以 666OS 已整合 MRS 为基线，自动同步并发布到 release
 # =============================================================================
-# 链路：cron/手动触发 → checkout main → 装 mihomo + python + pyyaml
-#       → 跑 scripts/build.sh → 把 dist/ 产物推到独立的 release 分支
-#       → Clash 客户端读 release 分支的 raw 链接
 name: Sync Rules
 
 on:
-  # 每天北京时间 00:30 自动构建（UTC 16:30）
   schedule:
     - cron: "30 16 * * *"
-  # 手动触发（GitHub 仓库 Actions 页 → Run workflow）
   workflow_dispatch:
-  # main 分支的 scripts/ 或 custom/ 有改动时立即构建；改 README 不触发
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'scripts/**'
-      - '.github/workflows/sync-rules.yml'
+      - "scripts/**"
+      - ".github/workflows/sync-rules.yml"
 
 permissions:
-  contents: write    # 必需：否则无法 push 到 release 分支
+  contents: write
 
 concurrency:
   group: sync-rules
@@ -30,95 +24,75 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # ---------- 1. 检出 main 分支 ----------
       - name: Checkout main
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0    # 需要完整历史以便切换 release 分支
+          fetch-depth: 1
 
-      # ---------- 2. 安装 Python 依赖（解析 sources.yaml）----------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install PyYAML
-        run: pip install pyyaml
+        run: python -m pip install --disable-pip-version-check pyyaml
 
-      # ---------- 3. 下载 mihomo（仅用 convert-ruleset 编译，不运行代理）----------
       - name: Download mihomo
         run: |
-          set -e
-          TAG=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
-                | grep -oP '"tag_name":\s*"\K[^"]+' | head -1)
+          set -euo pipefail
+          TAG="$(python -c 'import json,sys,urllib.request; print(json.load(urllib.request.urlopen("https://api.github.com/repos/MetaCubeX/mihomo/releases/latest"))["tag_name"])')"
           echo "mihomo tag: $TAG"
-          URL="https://github.com/MetaCubeX/mihomo/releases/download/${TAG}/mihomo-linux-amd64-${TAG}.gz"
-          echo "downloading: $URL"
-          curl -fsSL -o mihomo.gz "$URL"
+          curl -fsSL -o mihomo.gz "https://github.com/MetaCubeX/mihomo/releases/download/$TAG/mihomo-linux-amd64-$TAG.gz"
           gunzip mihomo.gz
           chmod +x mihomo
           ./mihomo -v
 
-      # ---------- 4. 执行构建 ----------
       - name: Build rulesets
         env:
           MIHOMO_BIN: ./mihomo
-        run: |
-          bash scripts/build.sh
+        run: bash scripts/build.sh
 
-      # ---------- 5. 校验产物 ----------
       - name: Verify output
         run: |
-          echo "=== domain mrs ==="
-          ls -lh dist/mihomo/domain/ 2>/dev/null || echo "(空)"
-          echo "=== ip mrs ==="
-          ls -lh dist/mihomo/ip/ 2>/dev/null || echo "(空)"
-          TOTAL=$(find dist -name '*.mrs' | wc -l)
-          echo "共生成 $TOTAL 个 .mrs 文件"
-          if [ "$TOTAL" -eq 0 ]; then
-            echo "::error::没有生成任何 mrs 文件，构建失败"
-            exit 1
-          fi
+          set -euo pipefail
+          test -s dist/mihomo/domain/GameStore.mrs
+          test -s dist/mihomo/domain/GameDownload.mrs
+          test -s dist/mihomo/domain/GameDownloadCustom.mrs
+          test -s dist/mihomo/domain/CrossBorder.mrs
+          test -s dist/mihomo/MANIFEST.json
+          TOTAL="$(find dist/mihomo -name "*.mrs" | wc -l)"
+          echo "generated $TOTAL MRS files"
+          test "$TOTAL" -gt 0
 
-      # ---------- 6. 发布到 release 分支 ----------
-      # 策略：用一个全新的孤立工作区（release-ws）放产物，避免与 main 工作区的
-      #       build 残留（dist/）冲突。产物路径固定为 release 分支根的 mihomo/。
       - name: Publish to release branch
         run: |
-          set -e
-          git config user.name  "github-actions[bot]"
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # 1) 把编译产物暂存到工作区外（dist 会被新分支的工作区清理影响）
-          rm -rf /tmp/publish && mkdir -p /tmp/publish/mihomo
-          cp -r dist/mihomo/domain /tmp/publish/mihomo/domain
-          cp -r dist/mihomo/ip     /tmp/publish/mihomo/ip
+          rm -rf /tmp/publish
+          mkdir -p /tmp/publish
+          cp -r dist/mihomo /tmp/publish/mihomo
           date -u +"%Y-%m-%d %H:%M:%S UTC" > /tmp/publish/BUILD_TIME.txt
 
-          # 2) 创建干净的孤立分支（不继承任何父提交，内容完全由我们控制）
-          git checkout --orphan release
-          # 清空工作区所有文件（含未跟踪的 dist/、源码等），确保 release 分支只有产物
+          git switch --orphan release-publish
           git rm -rf . >/dev/null 2>&1 || true
-          find . -mindepth 1 -not -path './.git*' -delete 2>/dev/null || true
+          find . -mindepth 1 -not -path "./.git*" -delete 2>/dev/null || true
 
-          # 3) 把产物放进来
           cp -r /tmp/publish/mihomo ./mihomo
-          cp    /tmp/publish/BUILD_TIME.txt ./BUILD_TIME.txt
-          rm -rf /tmp/publish
-
-          # 4) 提交并强制推送（release 分支每次都是全量覆盖，无需合并历史）
+          cp /tmp/publish/BUILD_TIME.txt ./BUILD_TIME.txt
           git add mihomo BUILD_TIME.txt
-          git commit -m "chore(rules): auto-sync $(date -u +%Y-%m-%d)" --allow-empty
+          git commit -m "chore(rules): sync 666OS downstream $(date -u +%Y-%m-%d)" --allow-empty
+          git branch -M release
           git push --force origin release
 
-      # ---------- 7. 汇总 ----------
       - name: Summary
         run: |
-          cat <<EOF >> $GITHUB_STEP_SUMMARY
-          ## ✅ 规则同步完成
-
-          - 构建时间: $(date -u +"%Y-%m-%d %H:%M UTC")
-          - mrs 文件数: $(find dist -name '*.mrs' | wc -l)
-          - 发布分支: \`release\`
-          - 客户端引用路径: \`https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release/mihomo/<domain|ip>/<Name>.mrs\`
-          EOF
+          {
+            echo "## Rule sync completed"
+            echo
+            echo "- upstream: 666OS/rules @ release"
+            echo "- MRS files: $(find dist/mihomo -name "*.mrs" | wc -l)"
+            echo "- Sparkle override: https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/sparkle-override.yaml"
+            echo "- MRS base: https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release/mihomo/<domain|ip>/<Name>.mrs"
+          } >> "$GITHUB_STEP_SUMMARY"
