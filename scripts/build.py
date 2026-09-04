@@ -100,8 +100,14 @@ def normalize_domain_rule(value: str) -> str:
 
 def is_excluded_domain(entry: str, exclusion: str) -> bool:
     domain = normalize_domain_rule(entry)
-    suffix = normalize_domain_rule(exclusion)
-    return domain == suffix or domain.endswith("." + suffix)
+    pattern = normalize_domain_rule(exclusion)
+    if pattern.startswith("*") and pattern.endswith("*"):
+        return pattern[1:-1] in domain
+    if pattern.startswith("*"):
+        return domain.endswith(pattern[1:])
+    if pattern.endswith("*"):
+        return domain.startswith(pattern[:-1])
+    return domain == pattern or domain.endswith("." + pattern)
 
 
 def filter_entries(entries: set[str], exclusions: list[str]) -> list[str]:
