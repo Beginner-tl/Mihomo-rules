@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:04:34.675292+00:00",
+  "generated_at": "2026-09-04T04:06:07.357448+00:00",
   "base_rules": {
     "branch": "release",
     "commit": "1ae44b2b73e5fc6ca9b92445b837fe0a1824ee5f"
@@ -7,6 +7,7 @@
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
   "derived_entries": 1023,
+  "download_entries": 486,
   "custom_entries": {
     "GameDownloadCustom": 42,
     "CrossBorder": 27,
@@ -80,7 +81,7 @@
     },
     {
       "path": "domain/GameDownload.mrs",
-      "bytes": 1934
+      "bytes": 1872
     },
     {
       "path": "domain/GameDownloadCustom.mrs",
@@ -338,7 +339,7 @@
     },
     {
       "path": "domain/GameDownload.txt",
-      "bytes": 119
+      "bytes": 14210
     },
     {
       "path": "domain/GameDownloadCustom.txt",
