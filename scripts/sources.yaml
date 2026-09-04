@@ -1,10 +1,8 @@
 # =============================================================================
-# downstream 规则源配置
+# 下游规则源配置
 # =============================================================================
-# 关系：
-#   666OS/rules release（已整合 MRS + 对应 TXT） → 本仓库 release
-#   666OS Games.txt + 本仓库 game-store.list → GameStore.mrs
-#   MetaCubeX 游戏下载 MRS + 本仓库 game-download.list → 下载 / 下载补充
+# 基础规则会自动同步到 release 分支，同时保留可读 TXT。
+# 需要合并的分类从文本重新编译为 MRS，并同步生成同名 TXT。
 #
 # 本文件不包含节点订阅，也不需要任何个人 Token。
 # =============================================================================
@@ -18,7 +16,6 @@ upstream:
   game_store_source: https://raw.githubusercontent.com/666OS/rules/release/mihomo/domain/Games.txt
   game_download_binary: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-game-platforms-download.mrs
 
-# 从上游 TXT 重新编译，便于叠加自己的平台商店域名。
 derived:
   - name: GameStore
     behavior: domain
@@ -26,7 +23,6 @@ derived:
     files:
       - scripts/custom/game-store.list
 
-# 纯文本自定义规则；空文件会自动跳过，不生成空 MRS。
 custom:
   - name: GameDownloadCustom
     behavior: domain
@@ -48,5 +44,5 @@ custom:
     files:
       - scripts/custom/custom-proxy.list
 
-# scripts/custom/emby.list 默认不编译到公开产物，避免把私人影视服务域名继续扩散；
+# scripts/custom/emby.list 默认不编译到公开产物，避免扩散私人影视服务域名；
 # 如果确认要公开，再把它作为一个 custom 项加入。

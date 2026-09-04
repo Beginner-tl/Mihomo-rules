@@ -1,5 +1,5 @@
 # Sparkle / Mihomo 覆写
-# 远程规则源：Beginner-tl/clash-rules；release MRS 自动跟随 666OS/rules 的整合产物，并叠加本仓库自定义规则
+# 远程规则源：Beginner-tl/clash-rules；release MRS 自动更新，并叠加本仓库自定义规则
 #
 # 用法：
 # 1. 在 Sparkle 的“覆写”中新建 YAML，并粘贴本文件内容；
@@ -124,7 +124,7 @@
       - 韩国策略
       - DIRECT
 
-  # 平台专属策略组：规则按 666OS Games 总表中的平台域名整理；未列出的游戏仍走“游戏平台”兜底
+  # 平台专属策略组：规则按  Games 总表中的平台域名整理；未列出的游戏仍走“游戏平台”兜底
   - name: Steam
     type: select
     proxies:
@@ -846,7 +846,7 @@ rule-providers:
   # 使用游戏专用的上游分类，不把通用软件 Download 规则作用到其他软件
   下载: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownload.mrs}
   下载补充: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownloadCustom.mrs}
-  # 你新增的“商店”规则集：使用 666OS Games 总表作为平台服务兜底
+  # 你新增的“商店”规则集：使用  Games 总表作为平台服务兜底
   商店: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameStore.mrs}
   Crypto: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Crypto.mrs}
   Google: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Google.mrs}

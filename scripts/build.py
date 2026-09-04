@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a downstream Mihomo rule source from 666OS/rules release artifacts."""
+"""Build a downstream Mihomo rule source and publish readable TXT companions."""
 
 from __future__ import annotations
 
@@ -7,7 +7,6 @@ import json
 import os
 import shutil
 import subprocess
-import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -90,16 +89,41 @@ def read_local_entries(files: list[str]) -> list[str]:
     return sorted(entries)
 
 
-def compile_mrs(name: str, behavior: str, entries: list[str], mihomo: str) -> int:
-    if not entries:
-        log(f"skip {name}: no entries")
-        return 0
+def write_readable_txt(
+    destination: Path,
+    name: str,
+    entries: list[str],
+    note: str,
+) -> None:
+    lines = [
+        f"# NAME: {name}",
+        f"# TOTAL: {len(entries)}",
+        f"# NOTE: {note}",
+        "",
+        *entries,
+        "",
+    ]
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text("\n".join(lines), encoding="utf-8")
 
+
+def compile_mrs(
+    name: str,
+    behavior: str,
+    entries: list[str],
+    mihomo: str,
+    note: str,
+) -> int:
     output_dir = DIST / ("domain" if behavior == "domain" else "ip")
     output_dir.mkdir(parents=True, exist_ok=True)
+    write_readable_txt(output_dir / f"{name}.txt", name, entries, note)
+
+    if not entries:
+        log(f"skip {name}.mrs: no entries; kept readable TXT")
+        return 0
+
     payload = WORK / f"{name}.yaml"
     output = output_dir / f"{name}.mrs"
-
     payload.write_text(
         yaml.safe_dump(
             {"payload": entries},
@@ -115,17 +139,33 @@ def compile_mrs(name: str, behavior: str, entries: list[str], mihomo: str) -> in
     return len(entries)
 
 
-def copy_upstream_mrs(upstream_dir: Path) -> int:
-    copied = 0
-    source_root = upstream_dir / "mihomo"
+def copy_base_rules(upstream_dir: Path, artifact_root: str) -> tuple[int, int]:
+    copied_mrs = 0
+    copied_txt = 0
+    source_root = upstream_dir / artifact_root
+
     for behavior in ("domain", "ip"):
         source_dir = source_root / behavior
         target_dir = DIST / behavior
         target_dir.mkdir(parents=True, exist_ok=True)
+
         for source in sorted(source_dir.glob("*.mrs")):
             shutil.copy2(source, target_dir / source.name)
-            copied += 1
-    return copied
+            copied_mrs += 1
+
+        # Rebuild readable TXT files so published metadata does not carry
+        # upstream author fields; the rule entries themselves are preserved.
+        for source in sorted(source_dir.glob("*.txt")):
+            entries = read_entries(source.read_text(encoding="utf-8"))
+            write_readable_txt(
+                target_dir / source.name,
+                source.stem,
+                entries,
+                "base rule entries",
+            )
+            copied_txt += 1
+
+    return copied_mrs, copied_txt
 
 
 def main() -> None:
@@ -139,7 +179,7 @@ def main() -> None:
         shutil.rmtree(WORK)
     WORK.mkdir(parents=True, exist_ok=True)
 
-    upstream_dir = WORK / "666os-rules"
+    upstream_dir = WORK / "base-rules"
     run(
         [
             "git",
@@ -157,17 +197,28 @@ def main() -> None:
         ["git", "-C", str(upstream_dir), "rev-parse", "HEAD"],
         capture=True,
     )
-    copied = copy_upstream_mrs(upstream_dir)
-    log(f"mirrored {copied} MRS files from 666OS/rules@{upstream_commit[:12]}")
+    mirrored_mrs, mirrored_txt = copy_base_rules(
+        upstream_dir,
+        upstream.get("artifact_root", "mihomo"),
+    )
+    log(
+        f"mirrored base rules: {mirrored_mrs} MRS, "
+        f"{mirrored_txt} TXT @ {upstream_commit[:12]}"
+    )
 
     domain_dir = DIST / "domain"
     domain_dir.mkdir(parents=True, exist_ok=True)
 
-    # This is the upstream game-download MRS used by the previous Sparkle draft.
-    # Keep it as a binary mirror; compile the local supplement separately.
+    # This prebuilt binary remains available for complete game-download matching.
     write_binary(
         upstream["game_download_binary"],
         domain_dir / "GameDownload.mrs",
+    )
+    write_readable_txt(
+        domain_dir / "GameDownload.txt",
+        "GameDownload",
+        [],
+        "prebuilt binary rule; see GameDownloadCustom.txt for local readable additions",
     )
 
     derived_count = 0
@@ -179,6 +230,7 @@ def main() -> None:
             item["behavior"],
             sorted(entries),
             mihomo,
+            "derived rule entries",
         )
 
     custom_counts: dict[str, int] = {}
@@ -189,34 +241,42 @@ def main() -> None:
             item["behavior"],
             entries,
             mihomo,
+            "local custom rule entries",
         )
 
-    artifacts = []
-    for path in sorted(DIST.rglob("*.mrs")):
-        artifacts.append(
-            {
-                "path": path.relative_to(DIST).as_posix(),
-                "bytes": path.stat().st_size,
-            }
-        )
+    mrs_artifacts = [
+        {
+            "path": path.relative_to(DIST).as_posix(),
+            "bytes": path.stat().st_size,
+        }
+        for path in sorted(DIST.rglob("*.mrs"))
+    ]
+    txt_artifacts = [
+        {
+            "path": path.relative_to(DIST).as_posix(),
+            "bytes": path.stat().st_size,
+        }
+        for path in sorted(DIST.rglob("*.txt"))
+    ]
 
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "upstream": {
-            "repository": upstream["repo"],
+        "base_rules": {
             "branch": upstream["branch"],
             "commit": upstream_commit,
         },
-        "mirrored_mrs": copied,
+        "mirrored_mrs": mirrored_mrs,
+        "mirrored_txt": mirrored_txt,
         "derived_entries": derived_count,
         "custom_entries": custom_counts,
-        "artifacts": artifacts,
+        "mrs_artifacts": mrs_artifacts,
+        "txt_artifacts": txt_artifacts,
     }
     (DIST / "MANIFEST.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    log(f"done: {len(artifacts)} MRS artifacts")
+    log(f"done: {len(mrs_artifacts)} MRS and {len(txt_artifacts)} TXT files")
 
 
 if __name__ == "__main__":

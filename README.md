@@ -4,14 +4,13 @@
 
 ## 规则说明
 
-- 以 [666OS/rules](https://github.com/666OS/rules/tree/release) 的 `release` 分支作为基础规则。
-- 同步 666OS 已整合的域名和 IP MRS 规则。
-- `GameStore.mrs`：666OS 游戏平台总表加自定义商店规则，走“游戏平台”策略组。
+- 提供域名和 IP 的 MRS 规则，同时保留可直接查看的 TXT 规则。
+- `GameStore.mrs/txt`：游戏平台和商店规则，走“游戏平台”策略组。
 - `GameDownload.mrs`：游戏下载规则。
-- `GameDownloadCustom.mrs`：自定义游戏 CDN 规则，直连。
-- `CrossBorder.mrs`：跨境电商相关域名，直连。
+- `GameDownloadCustom.mrs/txt`：自定义游戏 CDN 规则，直连。
+- `CrossBorder.mrs/txt`：跨境电商相关域名，直连。
 - 规则产物发布在 `release` 分支的 `mihomo/domain` 和 `mihomo/ip` 目录。
-- GitHub Actions 自动同步和编译规则。
+- GitHub Actions 自动同步、编译并发布 MRS/TXT。
 
 Sparkle 覆写：
 

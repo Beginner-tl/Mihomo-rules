@@ -1,5 +1,5 @@
 # =============================================================================
-# sync-rules.yml —— 以 666OS 已整合 MRS 为基线，自动同步并发布到 release
+# sync-rules.yml —— 自动同步基础规则、编译 MRS/TXT 并发布到 release
 # =============================================================================
 name: Sync Rules
 
@@ -40,7 +40,7 @@ jobs:
       - name: Download mihomo
         run: |
           set -euo pipefail
-          TAG="$(python -c 'import json,sys,urllib.request; print(json.load(urllib.request.urlopen("https://api.github.com/repos/MetaCubeX/mihomo/releases/latest"))["tag_name"])')"
+          TAG="$(python -c 'import json,urllib.request; print(json.load(urllib.request.urlopen("https://api.github.com/repos/MetaCubeX/mihomo/releases/latest"))["tag_name"])')"
           echo "mihomo tag: $TAG"
           curl -fsSL -o mihomo.gz "https://github.com/MetaCubeX/mihomo/releases/download/$TAG/mihomo-linux-amd64-$TAG.gz"
           gunzip mihomo.gz
@@ -56,13 +56,19 @@ jobs:
         run: |
           set -euo pipefail
           test -s dist/mihomo/domain/GameStore.mrs
+          test -s dist/mihomo/domain/GameStore.txt
           test -s dist/mihomo/domain/GameDownload.mrs
+          test -s dist/mihomo/domain/GameDownload.txt
           test -s dist/mihomo/domain/GameDownloadCustom.mrs
+          test -s dist/mihomo/domain/GameDownloadCustom.txt
           test -s dist/mihomo/domain/CrossBorder.mrs
+          test -s dist/mihomo/domain/CrossBorder.txt
           test -s dist/mihomo/MANIFEST.json
-          TOTAL="$(find dist/mihomo -name "*.mrs" | wc -l)"
-          echo "generated $TOTAL MRS files"
-          test "$TOTAL" -gt 0
+          MRS_TOTAL="$(find dist/mihomo -name "*.mrs" | wc -l)"
+          TXT_TOTAL="$(find dist/mihomo -name "*.txt" | wc -l)"
+          echo "generated $MRS_TOTAL MRS files and $TXT_TOTAL TXT files"
+          test "$MRS_TOTAL" -gt 0
+          test "$TXT_TOTAL" -gt 0
 
       - name: Publish to release branch
         run: |
@@ -82,7 +88,7 @@ jobs:
           cp -r /tmp/publish/mihomo ./mihomo
           cp /tmp/publish/BUILD_TIME.txt ./BUILD_TIME.txt
           git add mihomo BUILD_TIME.txt
-          git commit -m "chore(rules): sync 666OS downstream $(date -u +%Y-%m-%d)" --allow-empty
+          git commit -m "chore(rules): sync rule source $(date -u +%Y-%m-%d)" --allow-empty
           git branch -M release
           git push --force origin release
 
@@ -91,8 +97,8 @@ jobs:
           {
             echo "## Rule sync completed"
             echo
-            echo "- upstream: 666OS/rules @ release"
             echo "- MRS files: $(find dist/mihomo -name "*.mrs" | wc -l)"
-            echo "- Sparkle override: https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/sparkle-override.yaml"
-            echo "- MRS base: https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/release/mihomo/<domain|ip>/<Name>.mrs"
+            echo "- TXT files: $(find dist/mihomo -name "*.txt" | wc -l)"
+            echo "- Sparkle override: https://raw.githubusercontent.com/Beginner-tl/clash-rules/main/sparkle-override.yaml"
+            echo "- Rule base: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/<domain|ip>/<Name>.<mrs|txt>"
           } >> "$GITHUB_STEP_SUMMARY"
