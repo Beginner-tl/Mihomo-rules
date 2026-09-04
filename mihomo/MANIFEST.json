@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-04T04:03:18.252063+00:00",
+  "generated_at": "2026-09-04T04:04:34.675292+00:00",
   "base_rules": {
     "branch": "release",
     "commit": "1ae44b2b73e5fc6ca9b92445b837fe0a1824ee5f"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 1063,
+  "derived_entries": 1023,
   "custom_entries": {
     "GameDownloadCustom": 42,
     "CrossBorder": 27,
@@ -88,7 +88,7 @@
     },
     {
       "path": "domain/GameStore.mrs",
-      "bytes": 10019
+      "bytes": 9655
     },
     {
       "path": "domain/Games.mrs",
@@ -346,7 +346,7 @@
     },
     {
       "path": "domain/GameStore.txt",
-      "bytes": 19320
+      "bytes": 18727
     },
     {
       "path": "domain/Games.txt",
