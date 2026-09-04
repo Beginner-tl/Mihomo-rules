@@ -1,5 +1,5 @@
 # Sparkle / Mihomo 覆写
-# 远程规则源：Beginner-tl/clash-rules；release MRS 自动更新，并叠加本仓库自定义规则
+# 远程规则源：Beginner-tl/Mihomo-rules；main 分支 MRS 自动更新，并叠加本仓库自定义规则
 #
 # 用法：
 # 1. 在 Sparkle 的“覆写”中新建 YAML，并粘贴本文件内容；
@@ -831,38 +831,38 @@ rules:
 
 # 远程 MRS 规则集（由本仓库镜像并发布）
 rule-providers:
-  Tracking: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Tracking.mrs}
-  Advertising: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Advertising.mrs}
-  Private: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Private.mrs}
-  Apple: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Apple.mrs}
-  Telegram: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Telegram.mrs}
-  TM: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/TM.mrs}
-  SocialMedia: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/SocialMedia.mrs}
-  AI: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/AI.mrs}
-  Dev: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Dev.mrs}
-  Emby: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Emby.mrs}
-  Streaming: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Streaming.mrs}
+  Tracking: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Tracking.mrs}
+  Advertising: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Advertising.mrs}
+  Private: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Private.mrs}
+  Apple: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Apple.mrs}
+  Telegram: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Telegram.mrs}
+  TM: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/TM.mrs}
+  SocialMedia: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/SocialMedia.mrs}
+  AI: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/AI.mrs}
+  Dev: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Dev.mrs}
+  Emby: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Emby.mrs}
+  Streaming: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Streaming.mrs}
   # 你新增的“下载”规则集：游戏下载、更新和 CDN 直连
   # 使用游戏专用的上游分类，不把通用软件 Download 规则作用到其他软件
-  下载: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownload.mrs}
-  下载补充: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameDownloadCustom.mrs}
+  下载: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/GameDownload.mrs}
+  下载补充: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/GameDownloadCustom.mrs}
   # 你新增的“商店”规则集：使用  Games 总表作为平台服务兜底
-  商店: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/GameStore.mrs}
-  Crypto: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Crypto.mrs}
-  Google: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Google.mrs}
-  Microsoft: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Microsoft.mrs}
-  Facebook: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Facebook.mrs}
-  Proxy: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Proxy.mrs}
-  China: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/China.mrs}
-  Speedtest: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/Speedtest.mrs}
-  PrivateIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Private.mrs}
-  CrossBorder: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/domain/CrossBorder.mrs}
-  TelegramIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Telegram.mrs}
-  SocialMediaIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/SocialMedia.mrs}
-  AIIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/AI.mrs}
-  EmbyIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Emby.mrs}
-  StreamingIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Streaming.mrs}
-  ProxyIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Proxy.mrs}
-  ChinaIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/China.mrs}
-  GoogleIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/ip/Google.mrs}
+  商店: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/GameStore.mrs}
+  Crypto: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Crypto.mrs}
+  Google: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Google.mrs}
+  Microsoft: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Microsoft.mrs}
+  Facebook: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Facebook.mrs}
+  Proxy: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Proxy.mrs}
+  China: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/China.mrs}
+  Speedtest: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/Speedtest.mrs}
+  PrivateIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Private.mrs}
+  CrossBorder: {type: http, behavior: domain, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/domain/CrossBorder.mrs}
+  TelegramIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Telegram.mrs}
+  SocialMediaIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/SocialMedia.mrs}
+  AIIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/AI.mrs}
+  EmbyIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Emby.mrs}
+  StreamingIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Streaming.mrs}
+  ProxyIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Proxy.mrs}
+  ChinaIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/China.mrs}
+  GoogleIP: {type: http, behavior: ipcidr, format: mrs, interval: 86400, url: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/ip/Google.mrs}
 

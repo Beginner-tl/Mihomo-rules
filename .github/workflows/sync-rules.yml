@@ -1,5 +1,5 @@
 # =============================================================================
-# sync-rules.yml —— 自动同步基础规则、编译 MRS/TXT 并发布到 release
+# sync-rules.yml —— 自动同步基础规则、编译 MRS/TXT 并发布到 main
 # =============================================================================
 name: Sync Rules
 
@@ -70,27 +70,23 @@ jobs:
           test "$MRS_TOTAL" -gt 0
           test "$TXT_TOTAL" -gt 0
 
-      - name: Publish to release branch
+      - name: Publish to main branch
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          rm -rf /tmp/publish
-          mkdir -p /tmp/publish
-          cp -r dist/mihomo /tmp/publish/mihomo
-          date -u +"%Y-%m-%d %H:%M:%S UTC" > /tmp/publish/BUILD_TIME.txt
+          rm -rf mihomo
+          cp -r dist/mihomo mihomo
+          date -u +"%Y-%m-%d %H:%M:%S UTC" > mihomo/BUILD_TIME.txt
 
-          git switch --orphan release-publish
-          git rm -rf . >/dev/null 2>&1 || true
-          find . -mindepth 1 -not -path "./.git*" -delete 2>/dev/null || true
-
-          cp -r /tmp/publish/mihomo ./mihomo
-          cp /tmp/publish/BUILD_TIME.txt ./BUILD_TIME.txt
-          git add mihomo BUILD_TIME.txt
-          git commit -m "chore(rules): sync rule source $(date -u +%Y-%m-%d)" --allow-empty
-          git branch -M release
-          git push --force origin release
+          git add -A mihomo
+          if git diff --cached --quiet; then
+            echo "No artifact changes"
+          else
+            git commit -m "chore(rules): sync rule source $(date -u +%Y-%m-%d)"
+            git push origin main
+          fi
 
       - name: Summary
         run: |
@@ -99,6 +95,6 @@ jobs:
             echo
             echo "- MRS files: $(find dist/mihomo -name "*.mrs" | wc -l)"
             echo "- TXT files: $(find dist/mihomo -name "*.txt" | wc -l)"
-            echo "- Sparkle override: https://raw.githubusercontent.com/Beginner-tl/clash-rules/main/sparkle-override.yaml"
-            echo "- Rule base: https://raw.githubusercontent.com/Beginner-tl/clash-rules/release/mihomo/<domain|ip>/<Name>.<mrs|txt>"
+            echo "- Sparkle override: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/sparkle-override.yaml"
+            echo "- Rule base: https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/mihomo/<domain|ip>/<Name>.<mrs|txt>"
           } >> "$GITHUB_STEP_SUMMARY"

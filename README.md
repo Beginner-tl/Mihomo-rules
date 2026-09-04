@@ -10,11 +10,11 @@
 - `GameDownload.mrs`：游戏下载规则。
 - `GameDownloadCustom.mrs/txt`：自定义游戏 CDN 规则，直连。
 - `CrossBorder.mrs/txt`：跨境电商相关域名，直连。
-- 规则产物发布在 `release` 分支的 `mihomo/domain` 和 `mihomo/ip` 目录。
+- 规则产物发布在 `main` 分支的 `mihomo/domain` 和 `mihomo/ip` 目录。
 - GitHub Actions 自动同步、编译并发布 MRS/TXT。
 
 Sparkle 覆写：
 
 ```
-https://raw.githubusercontent.com/Beginner-tl/clash-rules/main/sparkle-override.yaml
+https://raw.githubusercontent.com/Beginner-tl/Mihomo-rules/main/sparkle-override.yaml
 ```
