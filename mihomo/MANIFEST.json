@@ -1,0 +1,524 @@
+{
+  "generated_at": "2026-09-04T03:46:40.654003+00:00",
+  "base_rules": {
+    "branch": "release",
+    "commit": "1ae44b2b73e5fc6ca9b92445b837fe0a1824ee5f"
+  },
+  "mirrored_mrs": 58,
+  "mirrored_txt": 58,
+  "derived_entries": 1144,
+  "custom_entries": {
+    "GameDownloadCustom": 42,
+    "CrossBorder": 27,
+    "CustomDirect": 0,
+    "CustomProxy": 0
+  },
+  "mrs_artifacts": [
+    {
+      "path": "domain/AI.mrs",
+      "bytes": 2634
+    },
+    {
+      "path": "domain/Advertising.mrs",
+      "bytes": 7958
+    },
+    {
+      "path": "domain/Apple.mrs",
+      "bytes": 17998
+    },
+    {
+      "path": "domain/AppleCN.mrs",
+      "bytes": 463
+    },
+    {
+      "path": "domain/Bybit.mrs",
+      "bytes": 226
+    },
+    {
+      "path": "domain/China.mrs",
+      "bytes": 539915
+    },
+    {
+      "path": "domain/Claude.mrs",
+      "bytes": 97
+    },
+    {
+      "path": "domain/Cloudflare.mrs",
+      "bytes": 997
+    },
+    {
+      "path": "domain/CrossBorder.mrs",
+      "bytes": 297
+    },
+    {
+      "path": "domain/Crypto.mrs",
+      "bytes": 4859
+    },
+    {
+      "path": "domain/Dev.mrs",
+      "bytes": 6575
+    },
+    {
+      "path": "domain/Direct.mrs",
+      "bytes": 510
+    },
+    {
+      "path": "domain/Disney.mrs",
+      "bytes": 2508
+    },
+    {
+      "path": "domain/Download.mrs",
+      "bytes": 1812
+    },
+    {
+      "path": "domain/Emby.mrs",
+      "bytes": 1993
+    },
+    {
+      "path": "domain/Facebook.mrs",
+      "bytes": 4248
+    },
+    {
+      "path": "domain/GameDownload.mrs",
+      "bytes": 1934
+    },
+    {
+      "path": "domain/GameDownloadCustom.mrs",
+      "bytes": 511
+    },
+    {
+      "path": "domain/GameStore.mrs",
+      "bytes": 10720
+    },
+    {
+      "path": "domain/Games.mrs",
+      "bytes": 10624
+    },
+    {
+      "path": "domain/Gemini.mrs",
+      "bytes": 208
+    },
+    {
+      "path": "domain/GitHub.mrs",
+      "bytes": 825
+    },
+    {
+      "path": "domain/Google.mrs",
+      "bytes": 8871
+    },
+    {
+      "path": "domain/HBO.mrs",
+      "bytes": 691
+    },
+    {
+      "path": "domain/Instagram.mrs",
+      "bytes": 828
+    },
+    {
+      "path": "domain/LocationDKS.mrs",
+      "bytes": 133
+    },
+    {
+      "path": "domain/Microsoft.mrs",
+      "bytes": 8025
+    },
+    {
+      "path": "domain/Netflix.mrs",
+      "bytes": 292
+    },
+    {
+      "path": "domain/NewsMedia.mrs",
+      "bytes": 14381
+    },
+    {
+      "path": "domain/OneDrive.mrs",
+      "bytes": 187
+    },
+    {
+      "path": "domain/OpenAI.mrs",
+      "bytes": 533
+    },
+    {
+      "path": "domain/PayPal.mrs",
+      "bytes": 2660
+    },
+    {
+      "path": "domain/Porn.mrs",
+      "bytes": 51431
+    },
+    {
+      "path": "domain/Private.mrs",
+      "bytes": 1319
+    },
+    {
+      "path": "domain/Proxy.mrs",
+      "bytes": 199165
+    },
+    {
+      "path": "domain/SocialMedia.mrs",
+      "bytes": 5733
+    },
+    {
+      "path": "domain/Speedtest.mrs",
+      "bytes": 40261
+    },
+    {
+      "path": "domain/Spotify.mrs",
+      "bytes": 424
+    },
+    {
+      "path": "domain/Streaming.mrs",
+      "bytes": 6831
+    },
+    {
+      "path": "domain/SystemOTA.mrs",
+      "bytes": 579
+    },
+    {
+      "path": "domain/TM.mrs",
+      "bytes": 785
+    },
+    {
+      "path": "domain/Telegram.mrs",
+      "bytes": 401
+    },
+    {
+      "path": "domain/TikTok.mrs",
+      "bytes": 480
+    },
+    {
+      "path": "domain/Tracking.mrs",
+      "bytes": 5465
+    },
+    {
+      "path": "domain/Twitter.mrs",
+      "bytes": 324
+    },
+    {
+      "path": "domain/XPTV.mrs",
+      "bytes": 2972
+    },
+    {
+      "path": "domain/YouTube.mrs",
+      "bytes": 1366
+    },
+    {
+      "path": "ip/AI.mrs",
+      "bytes": 62
+    },
+    {
+      "path": "ip/Advertising.mrs",
+      "bytes": 60
+    },
+    {
+      "path": "ip/AppleCN.mrs",
+      "bytes": 72
+    },
+    {
+      "path": "ip/China.mrs",
+      "bytes": 37710
+    },
+    {
+      "path": "ip/Cloudflare.mrs",
+      "bytes": 4371
+    },
+    {
+      "path": "ip/Emby.mrs",
+      "bytes": 92
+    },
+    {
+      "path": "ip/Facebook.mrs",
+      "bytes": 553
+    },
+    {
+      "path": "ip/Google.mrs",
+      "bytes": 8075
+    },
+    {
+      "path": "ip/Netflix.mrs",
+      "bytes": 314
+    },
+    {
+      "path": "ip/Private.mrs",
+      "bytes": 157
+    },
+    {
+      "path": "ip/Proxy.mrs",
+      "bytes": 127
+    },
+    {
+      "path": "ip/SocialMedia.mrs",
+      "bytes": 145
+    },
+    {
+      "path": "ip/Streaming.mrs",
+      "bytes": 113
+    },
+    {
+      "path": "ip/Telegram.mrs",
+      "bytes": 170
+    },
+    {
+      "path": "ip/XPTV.mrs",
+      "bytes": 112
+    }
+  ],
+  "txt_artifacts": [
+    {
+      "path": "domain/AI.txt",
+      "bytes": 5255
+    },
+    {
+      "path": "domain/Advertising.txt",
+      "bytes": 15696
+    },
+    {
+      "path": "domain/Apple.txt",
+      "bytes": 37394
+    },
+    {
+      "path": "domain/AppleCN.txt",
+      "bytes": 853
+    },
+    {
+      "path": "domain/Bybit.txt",
+      "bytes": 284
+    },
+    {
+      "path": "domain/China.txt",
+      "bytes": 1630571
+    },
+    {
+      "path": "domain/Claude.txt",
+      "bytes": 99
+    },
+    {
+      "path": "domain/Cloudflare.txt",
+      "bytes": 1547
+    },
+    {
+      "path": "domain/CrossBorder.txt",
+      "bytes": 599
+    },
+    {
+      "path": "domain/Crypto.txt",
+      "bytes": 8490
+    },
+    {
+      "path": "domain/CustomDirect.txt",
+      "bytes": 67
+    },
+    {
+      "path": "domain/CustomProxy.txt",
+      "bytes": 66
+    },
+    {
+      "path": "domain/Dev.txt",
+      "bytes": 12426
+    },
+    {
+      "path": "domain/Direct.txt",
+      "bytes": 697
+    },
+    {
+      "path": "domain/Disney.txt",
+      "bytes": 4178
+    },
+    {
+      "path": "domain/Download.txt",
+      "bytes": 3006
+    },
+    {
+      "path": "domain/Emby.txt",
+      "bytes": 3412
+    },
+    {
+      "path": "domain/Facebook.txt",
+      "bytes": 8626
+    },
+    {
+      "path": "domain/GameDownload.txt",
+      "bytes": 119
+    },
+    {
+      "path": "domain/GameDownloadCustom.txt",
+      "bytes": 1038
+    },
+    {
+      "path": "domain/GameStore.txt",
+      "bytes": 20605
+    },
+    {
+      "path": "domain/Games.txt",
+      "bytes": 20193
+    },
+    {
+      "path": "domain/Gemini.txt",
+      "bytes": 278
+    },
+    {
+      "path": "domain/GitHub.txt",
+      "bytes": 1979
+    },
+    {
+      "path": "domain/Google.txt",
+      "bytes": 18288
+    },
+    {
+      "path": "domain/HBO.txt",
+      "bytes": 1009
+    },
+    {
+      "path": "domain/Instagram.txt",
+      "bytes": 1505
+    },
+    {
+      "path": "domain/LocationDKS.txt",
+      "bytes": 146
+    },
+    {
+      "path": "domain/Microsoft.txt",
+      "bytes": 15570
+    },
+    {
+      "path": "domain/Netflix.txt",
+      "bytes": 508
+    },
+    {
+      "path": "domain/NewsMedia.txt",
+      "bytes": 27310
+    },
+    {
+      "path": "domain/OneDrive.txt",
+      "bytes": 226
+    },
+    {
+      "path": "domain/OpenAI.txt",
+      "bytes": 738
+    },
+    {
+      "path": "domain/PayPal.txt",
+      "bytes": 4706
+    },
+    {
+      "path": "domain/Porn.txt",
+      "bytes": 107223
+    },
+    {
+      "path": "domain/Private.txt",
+      "bytes": 4791
+    },
+    {
+      "path": "domain/Proxy.txt",
+      "bytes": 459551
+    },
+    {
+      "path": "domain/SocialMedia.txt",
+      "bytes": 11154
+    },
+    {
+      "path": "domain/Speedtest.txt",
+      "bytes": 85264
+    },
+    {
+      "path": "domain/Spotify.txt",
+      "bytes": 678
+    },
+    {
+      "path": "domain/Streaming.txt",
+      "bytes": 12381
+    },
+    {
+      "path": "domain/SystemOTA.txt",
+      "bytes": 2195
+    },
+    {
+      "path": "domain/TM.txt",
+      "bytes": 1232
+    },
+    {
+      "path": "domain/Telegram.txt",
+      "bytes": 573
+    },
+    {
+      "path": "domain/TikTok.txt",
+      "bytes": 785
+    },
+    {
+      "path": "domain/Tracking.txt",
+      "bytes": 9620
+    },
+    {
+      "path": "domain/Twitter.txt",
+      "bytes": 425
+    },
+    {
+      "path": "domain/XPTV.txt",
+      "bytes": 5145
+    },
+    {
+      "path": "domain/YouTube.txt",
+      "bytes": 2800
+    },
+    {
+      "path": "ip/AI.txt",
+      "bytes": 115
+    },
+    {
+      "path": "ip/Advertising.txt",
+      "bytes": 130
+    },
+    {
+      "path": "ip/AppleCN.txt",
+      "bytes": 117
+    },
+    {
+      "path": "ip/China.txt",
+      "bytes": 153870
+    },
+    {
+      "path": "ip/Cloudflare.txt",
+      "bytes": 10690
+    },
+    {
+      "path": "ip/Emby.txt",
+      "bytes": 214
+    },
+    {
+      "path": "ip/Facebook.txt",
+      "bytes": 2192
+    },
+    {
+      "path": "ip/Google.txt",
+      "bytes": 169986
+    },
+    {
+      "path": "ip/Netflix.txt",
+      "bytes": 2155
+    },
+    {
+      "path": "ip/Private.txt",
+      "bytes": 467
+    },
+    {
+      "path": "ip/Proxy.txt",
+      "bytes": 404
+    },
+    {
+      "path": "ip/SocialMedia.txt",
+      "bytes": 324
+    },
+    {
+      "path": "ip/Streaming.txt",
+      "bytes": 329
+    },
+    {
+      "path": "ip/Telegram.txt",
+      "bytes": 624
+    },
+    {
+      "path": "ip/XPTV.txt",
+      "bytes": 373
+    }
+  ]
+}

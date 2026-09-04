@@ -1,0 +1,4 @@
+# NAME: GameDownload
+# TOTAL: 0
+# NOTE: prebuilt binary rule; see GameDownloadCustom.txt for local readable additions
+

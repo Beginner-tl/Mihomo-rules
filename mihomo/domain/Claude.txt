@@ -1,0 +1,7 @@
+# NAME: Claude
+# TOTAL: 3
+# NOTE: base rule entries
+
++.anthropic.com
++.claude.ai
+cdn.usefathom.com

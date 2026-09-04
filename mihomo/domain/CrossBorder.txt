@@ -1,0 +1,31 @@
+# NAME: CrossBorder
+# TOTAL: 27
+# NOTE: local custom rule entries
+
++.alibaba.com
++.alibabacloud.com
++.aliexpress.com
++.tmall.hk
++.worldfirst.com
+account.alibabacloud.com
+global.cainiao.com
+gpn.cainiao.com
+gsp.aliexpress.com
+i.alibaba.com
+login.alibaba.com
+login.aliexpress.com
+merchant.tmall.hk
+portal.worldfirst.com
+portal.worldfirst.com.cn
+register.alibaba.com
+sell.aliexpress.com
+seller.alibaba.com
+seller.aliexpress.com
+service.cainiao.com
+signin-intl.aliyun.com
+signin.alibabacloud.com
+sourcing.alibaba.com
+www.alibabacloud.com
+www.cainiao-globalshipping.com
+www.tmall.hk
+www.worldfirst.com.cn
