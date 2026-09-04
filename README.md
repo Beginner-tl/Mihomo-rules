@@ -1,4 +1,4 @@
-# clash-rules
+# Mihomo
 
 面向 Sparkle / Mihomo 的规则源。
 
