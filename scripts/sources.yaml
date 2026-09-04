@@ -14,7 +14,9 @@ upstream:
   branch: release
   artifact_root: mihomo
   game_store_source: https://raw.githubusercontent.com/666OS/rules/release/mihomo/domain/Games.txt
-  game_download_binary: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-game-platforms-download.mrs
+  game_download_source: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-game-platforms-download.list
+  game_download_exclude_files:
+    - scripts/custom/game-domestic.list
 
 derived:
   - name: GameStore

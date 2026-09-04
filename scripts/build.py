@@ -240,16 +240,18 @@ def main() -> None:
     domain_dir = DIST / "domain"
     domain_dir.mkdir(parents=True, exist_ok=True)
 
-    # This prebuilt binary remains available for complete game-download matching.
-    write_binary(
-        upstream["game_download_binary"],
-        domain_dir / "GameDownload.mrs",
+    # Build the complete game-download rule from the upstream readable list.
+    download_entries = set(read_entries(fetch_text(upstream["game_download_source"])))
+    download_exclusions = read_local_entries(
+        upstream.get("game_download_exclude_files", [])
     )
-    write_readable_txt(
-        domain_dir / "GameDownload.txt",
+    download_entries = set(filter_entries(download_entries, download_exclusions))
+    compile_mrs(
         "GameDownload",
-        [],
-        "prebuilt binary rule; see GameDownloadCustom.txt for local readable additions",
+        "domain",
+        sorted(download_entries),
+        mihomo,
+        "upstream text rule entries",
     )
 
     derived_count = 0
@@ -303,6 +305,7 @@ def main() -> None:
         "mirrored_mrs": mirrored_mrs,
         "mirrored_txt": mirrored_txt,
         "derived_entries": derived_count,
+        "download_entries": len(download_entries),
         "custom_entries": custom_counts,
         "mrs_artifacts": mrs_artifacts,
         "txt_artifacts": txt_artifacts,
