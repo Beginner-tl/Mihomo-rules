@@ -55,18 +55,12 @@
       - 澳洲策略
       - 英国策略
 
-  # 自动故障转移：优先使用全部节点自动测速池，失败后按地区自动池兜底
+  # 自动故障转移：直接检查全部订阅子节点，不依赖地区自动组
   - name: 故障转移自动
     type: fallback
-    proxies:
-      - 全球节点自动
-      - 香港自动
-      - 台湾自动
-      - 日本自动
-      - 新加坡自动
-      - 美国自动
-      - 澳洲自动
-      - 英国自动
+    include-all: true
+    exclude-type: Direct|Reject
+    exclude-filter: "排除"
     url: https://www.gstatic.com/generate_204
     interval: 300
     timeout: 5000
@@ -79,20 +73,6 @@
     type: select
     include-all: true
     exclude-type: Direct|Reject
-
-  # 全部订阅节点自动测速池，避免地区自动组可用节点过少
-  - name: 全球节点自动
-    type: url-test
-    include-all: true
-    exclude-type: Direct|Reject
-    exclude-filter: "排除"
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    timeout: 5000
-    max-failed-times: 3
-    empty-fallback: REJECT
-    hidden: true
 
   - name: 漏网之鱼
     type: select
