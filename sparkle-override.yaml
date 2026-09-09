@@ -41,10 +41,25 @@
       - 澳洲策略
       - 英国策略
 
-  # 总故障转移：先比较各地区自动组，再由地区自动组选择本地区低延迟节点
+  # 故障转移入口：默认自动，也可切换到全节点手动或地区手动
   - name: 故障转移
-    type: url-test
+    type: select
     proxies:
+      - 故障转移自动
+      - 全球手动
+      - 香港策略
+      - 台湾策略
+      - 日本策略
+      - 新加坡策略
+      - 美国策略
+      - 澳洲策略
+      - 英国策略
+
+  # 自动故障转移：优先使用全部节点自动测速池，失败后按地区自动池兜底
+  - name: 故障转移自动
+    type: fallback
+    proxies:
+      - 全球节点自动
       - 香港自动
       - 台湾自动
       - 日本自动
@@ -54,16 +69,30 @@
       - 英国自动
     url: https://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     timeout: 5000
-    max-failed-times: 3
+    max-failed-times: 2
     empty-fallback: REJECT
+    hidden: true
 
   # 手动选择全部节点
   - name: 全球手动
     type: select
     include-all: true
     exclude-type: Direct|Reject
+
+  # 全部订阅节点自动测速池，避免地区自动组可用节点过少
+  - name: 全球节点自动
+    type: url-test
+    include-all: true
+    exclude-type: Direct|Reject
+    exclude-filter: "排除"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    timeout: 5000
+    max-failed-times: 3
+    empty-fallback: REJECT
+    hidden: true
 
   - name: 漏网之鱼
     type: select
