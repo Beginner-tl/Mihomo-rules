@@ -306,7 +306,7 @@
   - name: 澳洲策略
     type: select
     include-all: true
-    filter: "(?i)澳|australia|sydney|syd|^au-"
+    filter: "(?i)澳|australia|sydney|syd|au-"
     exclude-filter: "排除"
     proxies:
       - 澳洲自动
@@ -314,7 +314,7 @@
   - name: 英国策略
     type: select
     include-all: true
-    filter: "(?i)英国|united ?kingdom|london|lon|^uk-"
+    filter: "(?i)英国|united ?kingdom|london|lon|uk-"
     exclude-filter: "排除"
     proxies:
       - 英国自动
@@ -370,7 +370,7 @@
   - name: 澳洲自动
     type: url-test
     include-all: true
-    filter: "(?i)澳|australia|sydney|syd|^au-"
+    filter: "(?i)澳|australia|sydney|syd|au-"
     exclude-filter: "排除"
     url: https://www.gstatic.com/generate_204
     interval: 300
@@ -382,7 +382,7 @@
   - name: 英国自动
     type: url-test
     include-all: true
-    filter: "(?i)英国|united ?kingdom|london|lon|^uk-"
+    filter: "(?i)英国|united ?kingdom|london|lon|uk-"
     exclude-filter: "排除"
     url: https://www.gstatic.com/generate_204
     interval: 300
