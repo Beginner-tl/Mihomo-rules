@@ -1,5 +1,5 @@
 # NAME: China
-# TOTAL: 111035
+# TOTAL: 111036
 # NOTE: base rule entries
 
 +.0.zone
@@ -104628,6 +104628,7 @@
 +.yuanpanguoji.com
 +.yuanqiao.net
 +.yuanqiao.pw
++.yuanqidesk.com
 +.yuanqilt.com
 +.yuanqingsh.com
 +.yuanqisenlin.com
