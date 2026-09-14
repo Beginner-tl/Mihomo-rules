@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-13T18:53:05.716462+00:00",
+  "generated_at": "2026-09-14T20:24:00.994939+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "4109a511f4386346520b9c552038d6681b318c9c"
+    "commit": "05def5a5fca368df762a26fe997538b7d31abd79"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 32872,
+  "derived_entries": 32874,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -146,7 +146,7 @@
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 199340
+      "bytes": 199440
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -210,11 +210,11 @@
     },
     {
       "path": "ip/China.mrs",
-      "bytes": 37784
+      "bytes": 37856
     },
     {
       "path": "ip/Cloudflare.mrs",
-      "bytes": 4373
+      "bytes": 4444
     },
     {
       "path": "ip/Emby.mrs",
@@ -222,11 +222,11 @@
     },
     {
       "path": "ip/Facebook.mrs",
-      "bytes": 545
+      "bytes": 540
     },
     {
       "path": "ip/Google.mrs",
-      "bytes": 8134
+      "bytes": 8144
     },
     {
       "path": "ip/Netflix.mrs",
@@ -392,7 +392,7 @@
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 459950
+      "bytes": 459995
     },
     {
       "path": "domain/SocialMedia.txt",
@@ -456,11 +456,11 @@
     },
     {
       "path": "ip/China.txt",
-      "bytes": 153274
+      "bytes": 153700
     },
     {
       "path": "ip/Cloudflare.txt",
-      "bytes": 10649
+      "bytes": 10823
     },
     {
       "path": "ip/Emby.txt",
@@ -468,11 +468,11 @@
     },
     {
       "path": "ip/Facebook.txt",
-      "bytes": 2152
+      "bytes": 2135
     },
     {
       "path": "ip/Google.txt",
-      "bytes": 171779
+      "bytes": 173250
     },
     {
       "path": "ip/Netflix.txt",
