@@ -1,5 +1,5 @@
 # NAME: China
-# TOTAL: 111036
+# TOTAL: 111035
 # NOTE: base rule entries
 
 +.0.zone
@@ -83529,7 +83529,6 @@
 +.spsicloudport.com
 +.spsisctgroup.com
 +.spsisncl.com
-+.spst2.com
 +.spsy.org
 +.sptcc.com
 +.sptccn.com
