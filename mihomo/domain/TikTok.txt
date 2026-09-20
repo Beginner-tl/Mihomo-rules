@@ -1,5 +1,5 @@
 # NAME: TikTok
-# TOTAL: 36
+# TOTAL: 37
 # NOTE: base rule entries
 
 +.analytics.tiktok.com
@@ -33,6 +33,7 @@
 +.ttlivecdn.com
 +.ttoverseaus.net
 +.ttwstatic.com
+p16-tiktok-dm-sticker-sign-sg.ibyteimg.com
 p16-tiktokcdn-com.akamaized.net
 roovza-launches.appsflyersdk.com
 roovza.inapps.appsflyersdk.com

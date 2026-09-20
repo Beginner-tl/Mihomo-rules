@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-18T19:06:30.752658+00:00",
+  "generated_at": "2026-09-20T18:57:46.885680+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "d3401dabeb4be4fa88083d8a0afc8ce7d2c4df2b"
+    "commit": "32e5b7c604bbb10174940a1f526f334b9615fa2a"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 32874,
+  "derived_entries": 32878,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -146,7 +146,7 @@
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 199440
+      "bytes": 199409
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -162,7 +162,7 @@
     },
     {
       "path": "domain/Streaming.mrs",
-      "bytes": 6831
+      "bytes": 6874
     },
     {
       "path": "domain/SystemOTA.mrs",
@@ -178,7 +178,7 @@
     },
     {
       "path": "domain/TikTok.mrs",
-      "bytes": 480
+      "bytes": 522
     },
     {
       "path": "domain/Tracking.mrs",
@@ -210,11 +210,11 @@
     },
     {
       "path": "ip/China.mrs",
-      "bytes": 37856
+      "bytes": 38349
     },
     {
       "path": "ip/Cloudflare.mrs",
-      "bytes": 4444
+      "bytes": 4601
     },
     {
       "path": "ip/Emby.mrs",
@@ -222,11 +222,11 @@
     },
     {
       "path": "ip/Facebook.mrs",
-      "bytes": 540
+      "bytes": 554
     },
     {
       "path": "ip/Google.mrs",
-      "bytes": 8144
+      "bytes": 8250
     },
     {
       "path": "ip/Netflix.mrs",
@@ -392,7 +392,7 @@
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 459995
+      "bytes": 460083
     },
     {
       "path": "domain/SocialMedia.txt",
@@ -408,7 +408,7 @@
     },
     {
       "path": "domain/Streaming.txt",
-      "bytes": 12381
+      "bytes": 12424
     },
     {
       "path": "domain/SystemOTA.txt",
@@ -424,7 +424,7 @@
     },
     {
       "path": "domain/TikTok.txt",
-      "bytes": 785
+      "bytes": 828
     },
     {
       "path": "domain/Tracking.txt",
@@ -456,11 +456,11 @@
     },
     {
       "path": "ip/China.txt",
-      "bytes": 153700
+      "bytes": 155357
     },
     {
       "path": "ip/Cloudflare.txt",
-      "bytes": 10823
+      "bytes": 11265
     },
     {
       "path": "ip/Emby.txt",
@@ -468,11 +468,11 @@
     },
     {
       "path": "ip/Facebook.txt",
-      "bytes": 2135
+      "bytes": 2189
     },
     {
       "path": "ip/Google.txt",
-      "bytes": 173250
+      "bytes": 176683
     },
     {
       "path": "ip/Netflix.txt",

@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27384
+# TOTAL: 27388
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -21447,6 +21447,9 @@
 +.stripchat.com
 +.stripe-terminal-local-reader.net
 +.stripe.com
++.stripe.dev
++.stripe.events
++.stripe.global
 +.stripe.network
 +.stripecdn.com
 +.stripparadise.com
@@ -26852,6 +26855,7 @@ osu.ppy.sh
 owl.li
 p-events-delivery.akamaized.net
 p.juijx.com
+p16-tiktok-dm-sticker-sign-sg.ibyteimg.com
 p16-tiktokcdn-com.akamaized.net
 packages.microsoft.com
 paper-attachments.s3.amazonaws.com

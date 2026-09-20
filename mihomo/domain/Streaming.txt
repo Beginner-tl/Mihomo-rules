@@ -1,5 +1,5 @@
 # NAME: Streaming
-# TOTAL: 697
+# TOTAL: 698
 # NOTE: base rule entries
 
 +.112263.com
@@ -679,6 +679,7 @@ link.theplatform.com
 litvfreemobile-hichannel.cdn.hinet.net
 p-bstarstatic.akamaized.net
 p.bstarstatic.com
+p16-tiktok-dm-sticker-sign-sg.ibyteimg.com
 p16-tiktokcdn-com.akamaized.net
 play-edge.itunes.apple.com
 players.brightcove.net
