@@ -1,5 +1,5 @@
 # NAME: China
-# TOTAL: 111044
+# TOTAL: 111045
 # NOTE: base rule entries
 
 +.0.zone
@@ -82248,6 +82248,7 @@
 +.sjf029.com
 +.sjfcdn.com
 +.sjfh168.com
++.sjfls6.com
 +.sjfpro.com
 +.sjfzxm.com
 +.sjg8.com
