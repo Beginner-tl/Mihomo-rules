@@ -1,5 +1,5 @@
 # NAME: Facebook
-# TOTAL: 470
+# TOTAL: 471
 # NOTE: base rule entries
 
 +.aboutfacebook.com
@@ -453,6 +453,7 @@
 +.sportstream.com
 +.supportfacebook.com
 +.terragraph.com
++.tfbnw.net
 +.thefacebook.com
 +.thefacebook.net
 +.thefind.com

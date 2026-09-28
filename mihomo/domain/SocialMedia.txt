@@ -1,5 +1,5 @@
 # NAME: SocialMedia
-# TOTAL: 634
+# TOTAL: 635
 # NOTE: base rule entries
 
 +.9ineverse.com
@@ -546,6 +546,7 @@
 +.target.vk.ru
 +.tellapart.com
 +.terragraph.com
++.tfbnw.net
 +.thefacebook.com
 +.thefacebook.net
 +.thefind.com

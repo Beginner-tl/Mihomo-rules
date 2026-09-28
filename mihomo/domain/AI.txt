@@ -1,5 +1,5 @@
 # NAME: AI
-# TOTAL: 265
+# TOTAL: 267
 # NOTE: mirrored base entries with exact exclusions
 
 +.agentclientprotocol.com
@@ -82,6 +82,7 @@
 +.events.statsigapi.net
 +.featuregates.org
 +.flow.google
++.flow.google.com
 +.gateway.ai.cloudflare.com
 +.gateway.icloud.com
 +.geller-pa.googleapis.com
@@ -135,6 +136,7 @@
 +.mistral.ai
 +.moonshot.ai
 +.mozilla.ai
++.notebook.google
 +.notebook.google.com
 +.notebooklm.google
 +.notebooklm.google.com
