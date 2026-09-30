@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-29T20:57:43.971713+00:00",
+  "generated_at": "2026-09-30T20:55:53.384704+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "115e22910ef9e5c12fbc74a49fcfcb746f563689"
+    "commit": "2a43aa05b2261603a1952211cf18f92d961c77e2"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 32888,
+  "derived_entries": 32890,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -34,7 +34,7 @@
     },
     {
       "path": "domain/China.mrs",
-      "bytes": 540395
+      "bytes": 540161
     },
     {
       "path": "domain/Claude.mrs",
@@ -154,7 +154,7 @@
     },
     {
       "path": "domain/Speedtest.mrs",
-      "bytes": 40617
+      "bytes": 40630
     },
     {
       "path": "domain/Spotify.mrs",
@@ -280,7 +280,7 @@
     },
     {
       "path": "domain/China.txt",
-      "bytes": 1632772
+      "bytes": 1632026
     },
     {
       "path": "domain/Claude.txt",
@@ -400,7 +400,7 @@
     },
     {
       "path": "domain/Speedtest.txt",
-      "bytes": 86265
+      "bytes": 86302
     },
     {
       "path": "domain/Spotify.txt",

@@ -1,5 +1,5 @@
 # NAME: Speedtest
-# TOTAL: 4405
+# TOTAL: 4407
 # NOTE: derived rule entries
 
 +.07internet.ro
@@ -455,8 +455,10 @@
 +.speed.com.do
 +.speed.dler.io
 +.speed.vzwnet.com
++.speedtest.co
 +.speedtest.hrec.coop
 +.speedtest.net
++.speedtestcustom.com
 +.speedy.com.ar
 +.speedy.it
 +.spotnet.co.il
