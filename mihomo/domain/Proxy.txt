@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27398
+# TOTAL: 27400
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -9493,6 +9493,7 @@
 +.fututrade.com
 +.fututrustee.com
 +.fuxporn.com
++.fuyin116.com
 +.fuzokudx.com
 +.fw.cm
 +.fxcm-chinese.com
@@ -15874,6 +15875,7 @@
 +.muscache.com
 +.muscdn.com
 +.musclegirlflix.com
++.muse.ai
 +.mushroomtrack.com
 +.mushymush.tv
 +.music.amazon.com
