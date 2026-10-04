@@ -1,5 +1,5 @@
 # NAME: AI
-# TOTAL: 267
+# TOTAL: 274
 # NOTE: mirrored base entries with exact exclusions
 
 +.agentclientprotocol.com
@@ -33,6 +33,7 @@
 +.clau.de
 +.claude.ai
 +.claude.com
++.claude.dev
 +.claudemcpclient.com
 +.claudemcpcontent.com
 +.claudeusercontent.com
@@ -117,6 +118,7 @@
 +.kiro.dev
 +.labs.google
 +.labs.google.com
++.labstailwind.pa.googleapis.com
 +.langchain.com
 +.launchdarkly.com
 +.leonardo.ai
@@ -130,12 +132,14 @@
 +.manuscdn.com
 +.marscode.com
 +.meta.ai
++.metaaivm.com
 +.microsoft-copilot.com
 +.midjourney.com
 +.minimax.io
 +.mistral.ai
 +.moonshot.ai
 +.mozilla.ai
++.muse.ai
 +.notebook.google
 +.notebook.google.com
 +.notebooklm.google
@@ -156,6 +160,7 @@
 +.openaicom.imgix.net
 +.openart.ai
 +.openclaw.ai
++.opencode.ai
 +.openrouter.ai
 +.openspec.dev
 +.oystermercury.top
@@ -244,6 +249,8 @@ edgeservices.bing.com
 gateway.ai.cloudflare.com
 gateway.icloud.com
 gemini.google.com
+geminiweb-pa.clients.google.com
+geminiweb-pa.clients6.google.com
 gspe1-ssl.ls.apple.com
 guzzoni.apple.com
 imagine.meta.com

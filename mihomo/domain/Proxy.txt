@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27400
+# TOTAL: 27407
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -5531,6 +5531,7 @@
 +.clau.de
 +.claude.ai
 +.claude.com
++.claude.dev
 +.claudemcpclient.com
 +.claudemcpcontent.com
 +.claudeusercontent.com
@@ -11584,6 +11585,7 @@
 +.huaren.us
 +.huarenav.com
 +.huarenporn.com
++.huarun.win
 +.huashundg.com
 +.huati.cc
 +.huaxin-lls.xyz
@@ -14869,6 +14871,7 @@
 +.met-nude.com
 +.meta.ai
 +.meta.com
++.metaaivm.com
 +.metabora.io
 +.metabrainz.org
 +.metacloud.com
@@ -17352,6 +17355,7 @@
 +.openbook.org.tw
 +.opencas.io
 +.openclaw.ai
++.opencode.ai
 +.opencollective.com
 +.opencreate.org
 +.opencritic.com
@@ -20616,6 +20620,7 @@
 +.sinchew.com.my
 +.sinchew.my
 +.sing-box.app
++.sing-box.sagernet.org
 +.sing4.lat
 +.sing68.com
 +.singaporepools.com.sg
@@ -26658,6 +26663,8 @@ gateway.icloud.com
 gaywatch.com
 gcpnews.com
 gelbooru.com
+geminiweb-pa.clients.google.com
+geminiweb-pa.clients6.google.com
 giantessnight.com
 gigabyte2.azureedge.net
 github-api.arkoselabs.com
