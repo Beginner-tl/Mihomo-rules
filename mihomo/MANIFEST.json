@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-09T21:06:58.320596+00:00",
+  "generated_at": "2026-10-10T20:13:32.418803+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "0630230cd6ab16b46e47b88c041d82875a529f22"
+    "commit": "9f39cd69604c6d47e970fb3c522ffd9dfdcff7ca"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
