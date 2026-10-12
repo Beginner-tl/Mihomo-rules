@@ -1,8 +1,9 @@
 # NAME: GitHub
-# TOTAL: 64
+# TOTAL: 65
 # NOTE: base rule entries
 
 +.atom.io
++.cafe.github.com
 +.collector.github.com
 +.dependabot.com
 +.gh.io

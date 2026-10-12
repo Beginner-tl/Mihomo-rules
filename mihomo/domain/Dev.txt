@@ -1,5 +1,5 @@
 # NAME: Dev
-# TOTAL: 664
+# TOTAL: 665
 # NOTE: base rule entries
 
 +.01.org
@@ -53,6 +53,7 @@
 +.bugsnag.com
 +.builtwithnix.org
 +.busybox.net
++.cafe.github.com
 +.calendarserver.org
 +.canonical.com
 +.carekit.org

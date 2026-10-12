@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-11T20:28:47.574241+00:00",
+  "generated_at": "2026-10-12T23:08:12.071008+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "9f39cd69604c6d47e970fb3c522ffd9dfdcff7ca"
+    "commit": "10d1cb4dc2eb967784c9853fbdafb30aa07af3ce"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 32928,
+  "derived_entries": 33024,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -14,7 +14,7 @@
   "mrs_artifacts": [
     {
       "path": "domain/AI.mrs",
-      "bytes": 2655
+      "bytes": 2660
     },
     {
       "path": "domain/Advertising.mrs",
@@ -34,7 +34,7 @@
     },
     {
       "path": "domain/China.mrs",
-      "bytes": 540161
+      "bytes": 541541
     },
     {
       "path": "domain/Claude.mrs",
@@ -54,7 +54,7 @@
     },
     {
       "path": "domain/Dev.mrs",
-      "bytes": 6668
+      "bytes": 6673
     },
     {
       "path": "domain/Direct.mrs",
@@ -94,7 +94,7 @@
     },
     {
       "path": "domain/GitHub.mrs",
-      "bytes": 825
+      "bytes": 832
     },
     {
       "path": "domain/Google.mrs",
@@ -114,7 +114,7 @@
     },
     {
       "path": "domain/Microsoft.mrs",
-      "bytes": 8025
+      "bytes": 7982
     },
     {
       "path": "domain/Netflix.mrs",
@@ -146,7 +146,7 @@
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 199604
+      "bytes": 200052
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -210,11 +210,11 @@
     },
     {
       "path": "ip/China.mrs",
-      "bytes": 37716
+      "bytes": 37560
     },
     {
       "path": "ip/Cloudflare.mrs",
-      "bytes": 4726
+      "bytes": 5089
     },
     {
       "path": "ip/Emby.mrs",
@@ -222,11 +222,11 @@
     },
     {
       "path": "ip/Facebook.mrs",
-      "bytes": 541
+      "bytes": 533
     },
     {
       "path": "ip/Google.mrs",
-      "bytes": 8295
+      "bytes": 8300
     },
     {
       "path": "ip/Netflix.mrs",
@@ -260,7 +260,7 @@
   "txt_artifacts": [
     {
       "path": "domain/AI.txt",
-      "bytes": 5320
+      "bytes": 5331
     },
     {
       "path": "domain/Advertising.txt",
@@ -280,7 +280,7 @@
     },
     {
       "path": "domain/China.txt",
-      "bytes": 1632026
+      "bytes": 1637423
     },
     {
       "path": "domain/Claude.txt",
@@ -300,7 +300,7 @@
     },
     {
       "path": "domain/Dev.txt",
-      "bytes": 12525
+      "bytes": 12543
     },
     {
       "path": "domain/Direct.txt",
@@ -340,7 +340,7 @@
     },
     {
       "path": "domain/GitHub.txt",
-      "bytes": 1979
+      "bytes": 1997
     },
     {
       "path": "domain/Google.txt",
@@ -360,7 +360,7 @@
     },
     {
       "path": "domain/Microsoft.txt",
-      "bytes": 15570
+      "bytes": 15588
     },
     {
       "path": "domain/Netflix.txt",
@@ -392,7 +392,7 @@
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 460869
+      "bytes": 462248
     },
     {
       "path": "domain/SocialMedia.txt",
@@ -456,11 +456,11 @@
     },
     {
       "path": "ip/China.txt",
-      "bytes": 153836
+      "bytes": 153249
     },
     {
       "path": "ip/Cloudflare.txt",
-      "bytes": 11603
+      "bytes": 12875
     },
     {
       "path": "ip/Emby.txt",
@@ -468,11 +468,11 @@
     },
     {
       "path": "ip/Facebook.txt",
-      "bytes": 2125
+      "bytes": 2111
     },
     {
       "path": "ip/Google.txt",
-      "bytes": 179947
+      "bytes": 180397
     },
     {
       "path": "ip/Netflix.txt",
