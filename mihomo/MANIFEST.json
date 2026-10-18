@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-17T18:42:59.487695+00:00",
+  "generated_at": "2026-10-18T18:47:27.596576+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "35022bfe9e745eb5d897e891dd3a5162c0dbf9bd"
+    "commit": "4636e558ddb1f8cc261b093439072c6ce3aba113"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 33024,
+  "derived_entries": 33031,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -34,7 +34,7 @@
     },
     {
       "path": "domain/China.mrs",
-      "bytes": 537230
+      "bytes": 535747
     },
     {
       "path": "domain/Claude.mrs",
@@ -82,11 +82,11 @@
     },
     {
       "path": "domain/GameStore.mrs",
-      "bytes": 9824
+      "bytes": 9839
     },
     {
       "path": "domain/Games.mrs",
-      "bytes": 10624
+      "bytes": 10636
     },
     {
       "path": "domain/Gemini.mrs",
@@ -146,7 +146,7 @@
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 200052
+      "bytes": 200198
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -210,11 +210,11 @@
     },
     {
       "path": "ip/China.mrs",
-      "bytes": 37560
+      "bytes": 38575
     },
     {
       "path": "ip/Cloudflare.mrs",
-      "bytes": 5089
+      "bytes": 5299
     },
     {
       "path": "ip/Emby.mrs",
@@ -226,7 +226,7 @@
     },
     {
       "path": "ip/Google.mrs",
-      "bytes": 8300
+      "bytes": 8337
     },
     {
       "path": "ip/Netflix.mrs",
@@ -280,7 +280,7 @@
     },
     {
       "path": "domain/China.txt",
-      "bytes": 1625323
+      "bytes": 1621027
     },
     {
       "path": "domain/Claude.txt",
@@ -328,11 +328,11 @@
     },
     {
       "path": "domain/GameStore.txt",
-      "bytes": 19018
+      "bytes": 19043
     },
     {
       "path": "domain/Games.txt",
-      "bytes": 20193
+      "bytes": 20218
     },
     {
       "path": "domain/Gemini.txt",
@@ -392,7 +392,7 @@
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 462248
+      "bytes": 462353
     },
     {
       "path": "domain/SocialMedia.txt",
@@ -456,11 +456,11 @@
     },
     {
       "path": "ip/China.txt",
-      "bytes": 153249
+      "bytes": 159300
     },
     {
       "path": "ip/Cloudflare.txt",
-      "bytes": 12875
+      "bytes": 13560
     },
     {
       "path": "ip/Emby.txt",
@@ -472,7 +472,7 @@
     },
     {
       "path": "ip/Google.txt",
-      "bytes": 180397
+      "bytes": 181909
     },
     {
       "path": "ip/Netflix.txt",

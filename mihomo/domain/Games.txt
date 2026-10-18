@@ -1,5 +1,5 @@
 # NAME: Games
-# TOTAL: 1123
+# TOTAL: 1124
 # NOTE: base rule entries
 
 +.100classicbooks.com
@@ -619,6 +619,7 @@
 +.playstation
 +.playstation.com
 +.playstation.net
++.playstationnetwork.com
 +.playvalorant.com
 +.playwarcraft3.com
 +.pogo.com

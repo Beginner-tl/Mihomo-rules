@@ -1,5 +1,5 @@
 # NAME: GameStore
-# TOTAL: 1038
+# TOTAL: 1039
 # NOTE: derived rule entries
 
 +.100classicbooks.com
@@ -543,6 +543,7 @@
 +.playstation
 +.playstation.com
 +.playstation.net
++.playstationnetwork.com
 +.playvalorant.com
 +.playwarcraft3.com
 +.pogo.com
