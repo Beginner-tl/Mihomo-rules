@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-19T21:11:14.220900+00:00",
+  "generated_at": "2026-10-20T20:04:31.006431+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "4636e558ddb1f8cc261b093439072c6ce3aba113"
+    "commit": "b525ff393d3bc190a126e99fce6c3a4300fecc47"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
@@ -34,7 +34,7 @@
     },
     {
       "path": "domain/China.mrs",
-      "bytes": 535747
+      "bytes": 535389
     },
     {
       "path": "domain/Claude.mrs",
@@ -280,7 +280,7 @@
     },
     {
       "path": "domain/China.txt",
-      "bytes": 1621027
+      "bytes": 1619742
     },
     {
       "path": "domain/Claude.txt",
