@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-23T20:01:27.816175+00:00",
+  "generated_at": "2026-10-24T18:55:20.931079+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "40dadc46a42200bf8ea8dcf42b7351cd32fdb0f1"
+    "commit": "5f46d88cb41bf2340f3bfe0b1da2ed30071c4b65"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 33031,
+  "derived_entries": 33033,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -146,7 +146,7 @@
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 200198
+      "bytes": 200151
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -392,7 +392,7 @@
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 462353
+      "bytes": 462388
     },
     {
       "path": "domain/SocialMedia.txt",

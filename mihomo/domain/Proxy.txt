@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27538
+# TOTAL: 27540
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -5866,6 +5866,7 @@
 +.conscrypt.org
 +.consentmanager.net
 +.consentpro.com
++.console.typesafe.ai
 +.constructware.com
 +.consul.io
 +.contactossexoecuador.com
@@ -9568,6 +9569,7 @@
 +.g.page
 +.g0v.social
 +.g1.com.br
++.ga.jspm.io
 +.gab.com
 +.gabocorp.com
 +.gacebook.com
