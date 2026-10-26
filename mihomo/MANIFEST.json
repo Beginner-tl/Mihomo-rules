@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-25T19:10:29.667434+00:00",
+  "generated_at": "2026-10-26T21:07:34.305682+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "5f46d88cb41bf2340f3bfe0b1da2ed30071c4b65"
+    "commit": "341bcdc3e6268d2f7d979bb87799963ea6cfec95"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
-  "derived_entries": 33033,
+  "derived_entries": 33120,
   "download_entries": 523,
   "custom_entries": {
     "CrossBorder": 27
@@ -14,7 +14,7 @@
   "mrs_artifacts": [
     {
       "path": "domain/AI.mrs",
-      "bytes": 2660
+      "bytes": 2796
     },
     {
       "path": "domain/Advertising.mrs",
@@ -34,7 +34,7 @@
     },
     {
       "path": "domain/China.mrs",
-      "bytes": 535389
+      "bytes": 535361
     },
     {
       "path": "domain/Claude.mrs",
@@ -50,11 +50,11 @@
     },
     {
       "path": "domain/Crypto.mrs",
-      "bytes": 4910
+      "bytes": 4943
     },
     {
       "path": "domain/Dev.mrs",
-      "bytes": 6673
+      "bytes": 6727
     },
     {
       "path": "domain/Direct.mrs",
@@ -82,11 +82,11 @@
     },
     {
       "path": "domain/GameStore.mrs",
-      "bytes": 9839
+      "bytes": 9941
     },
     {
       "path": "domain/Games.mrs",
-      "bytes": 10636
+      "bytes": 10713
     },
     {
       "path": "domain/Gemini.mrs",
@@ -114,7 +114,7 @@
     },
     {
       "path": "domain/Microsoft.mrs",
-      "bytes": 7982
+      "bytes": 7806
     },
     {
       "path": "domain/Netflix.mrs",
@@ -142,11 +142,11 @@
     },
     {
       "path": "domain/Private.mrs",
-      "bytes": 1319
+      "bytes": 1351
     },
     {
       "path": "domain/Proxy.mrs",
-      "bytes": 200151
+      "bytes": 200601
     },
     {
       "path": "domain/SocialMedia.mrs",
@@ -210,11 +210,11 @@
     },
     {
       "path": "ip/China.mrs",
-      "bytes": 38575
+      "bytes": 38544
     },
     {
       "path": "ip/Cloudflare.mrs",
-      "bytes": 5299
+      "bytes": 4988
     },
     {
       "path": "ip/Emby.mrs",
@@ -226,7 +226,7 @@
     },
     {
       "path": "ip/Google.mrs",
-      "bytes": 8337
+      "bytes": 8350
     },
     {
       "path": "ip/Netflix.mrs",
@@ -234,7 +234,7 @@
     },
     {
       "path": "ip/Private.mrs",
-      "bytes": 157
+      "bytes": 238
     },
     {
       "path": "ip/Proxy.mrs",
@@ -260,7 +260,7 @@
   "txt_artifacts": [
     {
       "path": "domain/AI.txt",
-      "bytes": 5331
+      "bytes": 5574
     },
     {
       "path": "domain/Advertising.txt",
@@ -280,7 +280,7 @@
     },
     {
       "path": "domain/China.txt",
-      "bytes": 1619742
+      "bytes": 1619762
     },
     {
       "path": "domain/Claude.txt",
@@ -296,11 +296,11 @@
     },
     {
       "path": "domain/Crypto.txt",
-      "bytes": 8524
+      "bytes": 8602
     },
     {
       "path": "domain/Dev.txt",
-      "bytes": 12543
+      "bytes": 12636
     },
     {
       "path": "domain/Direct.txt",
@@ -328,11 +328,11 @@
     },
     {
       "path": "domain/GameStore.txt",
-      "bytes": 19043
+      "bytes": 19207
     },
     {
       "path": "domain/Games.txt",
-      "bytes": 20218
+      "bytes": 20382
     },
     {
       "path": "domain/Gemini.txt",
@@ -360,7 +360,7 @@
     },
     {
       "path": "domain/Microsoft.txt",
-      "bytes": 15588
+      "bytes": 15518
     },
     {
       "path": "domain/Netflix.txt",
@@ -388,11 +388,11 @@
     },
     {
       "path": "domain/Private.txt",
-      "bytes": 4791
+      "bytes": 4844
     },
     {
       "path": "domain/Proxy.txt",
-      "bytes": 462388
+      "bytes": 463724
     },
     {
       "path": "domain/SocialMedia.txt",
@@ -456,11 +456,11 @@
     },
     {
       "path": "ip/China.txt",
-      "bytes": 159300
+      "bytes": 159350
     },
     {
       "path": "ip/Cloudflare.txt",
-      "bytes": 13560
+      "bytes": 12353
     },
     {
       "path": "ip/Emby.txt",
@@ -468,11 +468,11 @@
     },
     {
       "path": "ip/Facebook.txt",
-      "bytes": 2111
+      "bytes": 2094
     },
     {
       "path": "ip/Google.txt",
-      "bytes": 181909
+      "bytes": 182224
     },
     {
       "path": "ip/Netflix.txt",
@@ -480,7 +480,7 @@
     },
     {
       "path": "ip/Private.txt",
-      "bytes": 467
+      "bytes": 598
     },
     {
       "path": "ip/Proxy.txt",

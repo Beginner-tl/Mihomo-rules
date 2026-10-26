@@ -1,5 +1,5 @@
 # NAME: GameStore
-# TOTAL: 1039
+# TOTAL: 1046
 # NOTE: derived rule entries
 
 +.100classicbooks.com
@@ -50,7 +50,6 @@
 +.artstation.com
 +.artstationmedia.com
 +.artstorm.com
-+.asobostudio.com
 +.astral-vector.com
 +.awayoutgame.com
 +.ayudanintendo.com
@@ -221,7 +220,6 @@
 +.fireemblemawakening.com
 +.firesidegatherings.com
 +.fitgirl-repacks.site
-+.flightsimulator.com
 +.flipnotestudio.com
 +.forevernine.com
 +.forgecdn.net
@@ -240,6 +238,7 @@
 +.gaijinent.com
 +.game-repack.site
 +.gameabc.com
++.gamebanana.com
 +.gamebonfire.com
 +.gameitop.com
 +.gameloop.com
@@ -588,6 +587,7 @@
 +.quiltmc.org
 +.quixel.com
 +.quixel.se
++.r2modman.com
 +.radgametools.com
 +.ravensoftware.com
 +.rayark.download
@@ -729,6 +729,7 @@
 +.steamdeck.com
 +.steamgames.com
 +.steaminventoryhelper.com
++.steamos.cloud
 +.steampowered.com
 +.steampowered.com.8686c.com
 +.steamserver.net
@@ -777,6 +778,8 @@
 +.thesims4.com
 +.thesimssocial.com
 +.thewonderful101.com
++.thunderstore.io
++.thunderstore.org
 +.tiancity.com
 +.tiancitycdn.com
 +.tiberiumalliances.com
@@ -848,10 +851,12 @@
 +.worldoftanks.eu
 +.worldofwarcraft.com
 +.worldofwarplanes.com
++.worldofwarships.asia
 +.worldofwarships.com
 +.worldseriesofwarzone.com
 +.wotblitz.com
 +.wowsblitz.com
++.wplace.live
 +.wtmobile.com
 +.xbox
 +.xbox.co
@@ -935,16 +940,18 @@ cdngarenanow-a.akamaihd.net
 checkout.steampowered.com
 cloudsync-prod.s3.amazonaws.com
 d1unuk07s6td74.cloudfront.net
+d348twzf7a8p5.cloudfront.net
 datarouter.apps.netherrealm.com
+devforum-uploads.s3.dualstack.us-east-2.amazonaws.com
 dlgarenanow-a.akamaihd.net
 dlmobilegarena-a.akamaihd.net
+doy2mn9upadnk.cloudfront.net
 ea.tt.omtrdc.net
 eaassets-a.akamaihd.net
 end-api.shallow.ink
 end.shallow.ink
 f3b7q2p3.ssl.hwcdn.net
 fast.nexx360.io
-flightsimulator.azureedge.net
 g.oncehuman.game
 gamedownloads-rockstargames-com.akamaized.net
 gear.blizzard.com

@@ -1,5 +1,5 @@
 # NAME: China
-# TOTAL: 110461
+# TOTAL: 110463
 # NOTE: base rule entries
 
 +.0.zone
@@ -85451,6 +85451,8 @@
 +.szty56.com
 +.sztz.org
 +.sztzzs.com
++.szu.app
++.szu.moe
 +.szuavia.org
 +.szudad.com
 +.szunionlab.com

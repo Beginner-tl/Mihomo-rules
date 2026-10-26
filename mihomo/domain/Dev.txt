@@ -1,5 +1,5 @@
 # NAME: Dev
-# TOTAL: 665
+# TOTAL: 671
 # NOTE: base rule entries
 
 +.01.org
@@ -178,6 +178,7 @@
 +.getcomposer.org
 +.getfedora.org
 +.getpaint.net
++.getsafety.com
 +.getsentry.com
 +.getzola.org
 +.gh.io
@@ -400,6 +401,7 @@
 +.polymerproject.org
 +.poshtestgallery.com
 +.postgresql.org
++.postman.com
 +.prd-lender.cdp.internal.unity3d.com
 +.pub.dev
 +.putty.org
@@ -411,6 +413,7 @@
 +.pyrobot.org
 +.python.org
 +.pythonhosted.org
++.pyup.io
 +.qt-project.org
 +.qt.io
 +.quay.io
@@ -450,6 +453,7 @@
 +.rubygems.org
 +.rust-lang.org
 +.rustup.rs
++.safetycli.com
 +.sankie.net
 +.scala-lang.org
 +.scala-sbt.org
@@ -499,6 +503,7 @@
 +.system76.com
 +.talkingkotlin.com
 +.tampermonkey.net
++.templatemonster.com
 +.termius.com
 +.termux.com
 +.termux.dev
@@ -515,6 +520,7 @@
 +.tildacdn.net
 +.timelinestoryteller.com
 +.timestamp.apple.com
++.tmimgcdn.com
 +.topcoder.com
 +.ubuntu-touch.io
 +.ubuntu.com

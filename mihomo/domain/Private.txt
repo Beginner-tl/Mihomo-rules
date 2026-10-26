@@ -1,5 +1,5 @@
 # NAME: Private
-# TOTAL: 229
+# TOTAL: 231
 # NOTE: base rule entries
 
 +.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
@@ -222,6 +222,8 @@
 asusrouter.com
 instant.arubanetworks.com
 local.adguard.org
+localhost.weixin.qq.com
+localhost.work.weixin.qq.com
 miwifi.com
 oasisauth.h3c.com
 router.asus.com
