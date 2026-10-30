@@ -1,5 +1,5 @@
 # NAME: China
-# TOTAL: 110192
+# TOTAL: 110194
 # NOTE: base rule entries
 
 +.0.zone
@@ -33524,6 +33524,7 @@
 +.fillersmart.com
 +.fillseo.com
 +.film-yuelongchina.com
++.filmorigin.com
 +.fily.fun
 +.fim34s.com
 +.fimmu.com
@@ -56029,6 +56030,7 @@
 +.kakappt.com
 +.kakashuzi.net
 +.kakatx.com
++.kakaxing.com
 +.kakayuy.net
 +.kaken-china.com
 +.kaku-scdn.com
