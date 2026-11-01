@@ -9,6 +9,7 @@
 +.spoti.fi
 +.spotify-everywhere.com
 +.spotify.com
++.spotify.com.edgesuite.net
 +.spotify.design
 +.spotify.link
 +.spotifycdn.com
@@ -27,6 +28,5 @@ bloodhound.spotify.com
 cdn-spotify-experiments.conductrics.com
 heads-ak-spotify-com.akamaized.net
 heads4-ak-spotify-com.akamaized.net
-spotify.com.edgesuite.net
 spotify.map.fastly.net
 spotify.map.fastlylb.net

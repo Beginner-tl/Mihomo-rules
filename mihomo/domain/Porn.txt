@@ -1,5 +1,5 @@
 # NAME: Porn
-# TOTAL: 6520
+# TOTAL: 6521
 # NOTE: base rule entries
 
 +.02weqj32.com
@@ -58,6 +58,7 @@
 +.18comic-god.xyz
 +.18comic.cc
 +.18comic.company
++.18comic.ink
 +.18comic.org
 +.18comic.vip
 +.18commic.com

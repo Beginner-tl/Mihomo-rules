@@ -1,5 +1,5 @@
 # NAME: GameStore
-# TOTAL: 1046
+# TOTAL: 1053
 # NOTE: derived rule entries
 
 +.100classicbooks.com
@@ -38,6 +38,7 @@
 +.activisionblizzard.com
 +.activisionblizzardmedia.com
 +.aligames.com
++.amdgaming.com
 +.amiibo.com
 +.anthemgame.com
 +.anthemthegame.com
@@ -108,6 +109,10 @@
 +.capturingreality.com
 +.cbjq.com
 +.cdncl.net
++.cdpred.services
++.cdprojekt.com
++.cdprojekt.red
++.cdprojektred.com
 +.cgyouxi.com
 +.championshipseriesleague.com
 +.changyou.com
@@ -132,6 +137,7 @@
 +.cubicodyssey.game
 +.curseforge.com
 +.cy.com
++.cyberpunk.net
 +.cygames.co.jp
 +.cygames.jp
 +.daoc.net
@@ -264,7 +270,6 @@
 +.gclouddolphin.com
 +.gcloudsdk.com
 +.gcloudsvcs.com
-+.gdtimg.com
 +.genshinimpact.com
 +.ghostgames.com
 +.giratina.com
@@ -535,6 +540,7 @@
 +.playartifact.com
 +.playbattlegrounds.com
 +.playcool.com
++.playgwent.com
 +.playhearthstone.com
 +.playnintendo.com
 +.playoverwatch.com
@@ -777,6 +783,7 @@
 +.thesims3.com
 +.thesims4.com
 +.thesimssocial.com
++.thewitcher.com
 +.thewonderful101.com
 +.thunderstore.io
 +.thunderstore.org

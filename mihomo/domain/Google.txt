@@ -1,5 +1,5 @@
 # NAME: Google
-# TOTAL: 1075
+# TOTAL: 1078
 # NOTE: base rule entries
 
 +.0emm.com
@@ -864,6 +864,9 @@ app-analytics-services.com
 app-measurement-cn.com
 app-measurement.com
 apps5.oingo.com
+appsgenaiserver-pa.clients.google.com
+appsgenaiserver-pa.clients6.google.com
+appsgenaiserver-pa.googleapis.com
 avail.googleflights.net
 beacons.gcp.gvt2.com
 beacons.gvt2.com
