@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27632
+# TOTAL: 27633
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -3590,6 +3590,7 @@
 +.bili2.cc
 +.bili888.com
 +.bili999.com
++.bilibili.tv
 +.bilinovel.com
 +.biliplus.com
 +.bill-safe.com
