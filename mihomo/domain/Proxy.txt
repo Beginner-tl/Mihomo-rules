@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27633
+# TOTAL: 27632
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -14805,7 +14805,6 @@
 +.maturewifeporn.cc
 +.maturewomenanal.com
 +.maturexxxvideos.cc
-+.maven.neoforged.net
 +.max-tcs.ru
 +.max.com
 +.max.ru
