@@ -1,5 +1,5 @@
 # NAME: Apple
-# TOTAL: 1816
+# TOTAL: 1817
 # NOTE: base rule entries
 
 +.100beatscheap.com
@@ -1749,6 +1749,7 @@ probe.siri.apple.com
 prod-support.apple-support.akadns.net
 publicassets.cdn-apple.com
 push-apple.com.akadns.net
+radio.itunes.apple.com
 s.mzstatic.com
 s1.mzstatic.com
 s2.mzstatic.com

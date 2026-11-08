@@ -1,11 +1,10 @@
 # NAME: GameStore
-# TOTAL: 1053
+# TOTAL: 1004
 # NOTE: derived rule entries
 
 +.100classicbooks.com
 +.17173.com
 +.17173cdn.com
-+.17roco.com
 +.2k.com
 +.2kcoretech.online
 +.2kct.onl
@@ -42,7 +41,6 @@
 +.amiibo.com
 +.anthemgame.com
 +.anthemthegame.com
-+.anticheatexpert.com
 +.apexlegends.com
 +.appeeres.com
 +.arcraiders.com
@@ -56,7 +54,6 @@
 +.ayudanintendo.com
 +.battle.net
 +.battlebreakers.com
-+.battlecare.net
 +.battlefield.com
 +.battlefield1943.com
 +.battlefield3.com
@@ -68,7 +65,6 @@
 +.battlefront2.com
 +.battlefrontii.com
 +.battlelog.com
-+.bcfmglobal.com
 +.bejeweledstars.com
 +.bejewled-stars.com
 +.benefitsforeveryworld.com
@@ -124,7 +120,6 @@
 +.clashroyale.com
 +.clashroyaleapp.com
 +.client-update.queniuqe.com
-+.codm.com
 +.commandandconquer.com
 +.conquerwithcharacter.com
 +.convrgencegame.com
@@ -218,7 +213,6 @@
 +.faceit.com
 +.fanatical.com
 +.feihuo.com
-+.ffbuddy.com
 +.ficgs.com
 +.fifastreet.com
 +.fifastreet3.com
@@ -245,9 +239,6 @@
 +.game-repack.site
 +.gameabc.com
 +.gamebanana.com
-+.gamebonfire.com
-+.gameitop.com
-+.gameloop.com
 +.gamemei.com
 +.gamepass.com
 +.gamesfirsthelsinki.com
@@ -264,12 +255,6 @@
 +.garena.tw
 +.garena.vn
 +.garenanow.com
-+.gcloudcs.com
-+.gcloudcstest.com
-+.gcloudcstestonly.com
-+.gclouddolphin.com
-+.gcloudsdk.com
-+.gcloudsvcs.com
 +.genshinimpact.com
 +.ghostgames.com
 +.giratina.com
@@ -281,21 +266,14 @@
 +.gog.com
 +.gogalaxy.com
 +.gooblox.com
-+.goto-game.com
-+.goto-game.mobi
-+.goto-game.org
-+.gotolink.net
 +.gpstatic.com
 +.gstore.val.manlaxy.com
-+.gtgres.com
 +.guoping123.com
 +.hackyourconsole.com
 +.haohaowan.net
 +.happyelements.com
-+.happyhlddz.com
 +.hayday.com
 +.haydaygame.com
-+.hdyxgame.com
 +.heavenlywind.cc
 +.hero.com
 +.heroesofdragonage.com
@@ -306,7 +284,6 @@
 +.historyofdota.com
 +.historyofdota.net
 +.historyofdota.org
-+.hkgcloudcs.com
 +.honkaiimpact3.com
 +.honkaistarrail.com
 +.hoyo.link
@@ -317,9 +294,7 @@
 +.hutpromos.com
 +.hyprsense.com
 +.i3839.com
-+.ihappystudio.com
 +.ihykb.com
-+.in.th
 +.industrialtoys.com
 +.infinityward.com
 +.insights-collector.gog.com
@@ -368,6 +343,9 @@
 +.learnwithleague.com
 +.ledu.com
 +.leyuansu.com
++.limbuscompany.global
++.limbuscompanyapi.com
++.limbuscompanycdn.org
 +.lingxigames.com
 +.log-upload-os.hoyoverse.com
 +.log-upload.mihoyo.com
@@ -384,15 +362,11 @@
 +.lordofultima.com
 +.loverslab.com
 +.lowiro.com
-+.ludoworld.net
 +.maddenchampionship.com
 +.maddenrewards.com
 +.maddenseason.info
 +.maddenseason.net
 +.maddenseason.org
-+.mahjongai.net
-+.mahjongcup.com
-+.mahjongcup.net
 +.makearmanotwar.com
 +.marioandluigidreamteam.com
 +.mariobroswii.com
@@ -403,9 +377,7 @@
 +.masseffectarchives.com
 +.masteroforion.com
 +.maxis.com
-+.metalrevolution.com
 +.mhystatic.com
-+.midasbuy.com
 +.mihayo.com
 +.mihayou.com
 +.mihoyo.com
@@ -433,8 +405,6 @@
 +.mojang.com
 +.molesports.com
 +.morefreegame.com
-+.mszdld.com
-+.mszdld.net
 +.muvluv-girls-garden.com
 +.mysims.com
 +.mysimsracing.com
@@ -443,7 +413,6 @@
 +.mythicentertainment.net
 +.mythicgames.com
 +.n0vadesktop.com
-+.nagcloudcs.com
 +.namemc.com
 +.needforspeed.com
 +.needforspeedboost.com
@@ -468,8 +437,6 @@
 +.nexon.net
 +.nexoncdn.co.kr
 +.nexongames.co.kr
-+.nextstudios.com
-+.nextworkshop.net
 +.nexus-cdn.com
 +.nexusmods.com
 +.nfsworld.com
@@ -581,11 +548,9 @@
 +.priconne-redive.jp
 +.prismlauncher.org
 +.projectapex.com
++.projectmoon.studio
 +.protondb.com
-+.proximabeta.com
 +.pubg.com
-+.pubghelper.com
-+.pubgtool.com
 +.pvp.net
 +.pvp.tv
 +.pvzgw2.com
@@ -607,7 +572,6 @@
 +.rbxlabs.com
 +.rbxtrk.com
 +.reachthefinals.com
-+.realcybertron.com
 +.realityscan.com
 +.renovacionxboxlive.com
 +.resella.jp
@@ -626,7 +590,6 @@
 +.riotgames.tv
 +.riotpin.com
 +.riotpoints.com
-+.rmwxgame.com
 +.ro-blox.com
 +.roadblocks.com
 +.roblocks.com
@@ -685,6 +648,7 @@
 +.simcity.com
 +.skate2.com
 +.sketchfab.com
++.skinswap.com
 +.skylanders.com
 +.sl916.com
 +.sledgehammergames.com
@@ -736,6 +700,7 @@
 +.steamgames.com
 +.steaminventoryhelper.com
 +.steamos.cloud
++.steampeek.hu
 +.steampowered.com
 +.steampowered.com.8686c.com
 +.steamserver.net
@@ -763,17 +728,11 @@
 +.swjfo.com
 +.swtor.com
 +.swtor.net
-+.syxlgame.com
 +.take2games.com
 +.tanwan.com
 +.tarkov.com
-+.tcfmglobal.com
 +.teamneedforspeed.com
 +.tellmewhygame.com
-+.tencent-gcloud.com
-+.tencentstart.com
-+.texasholdemcup.com
-+.texasholdemcup.net
 +.tgpro.top
 +.tgprocs.net
 +.thedreadwolfrises.com
@@ -791,7 +750,6 @@
 +.tiancitycdn.com
 +.tiberiumalliances.com
 +.tiburon.com
-+.timibase.com
 +.titanfall.com
 +.tnt-ea.com
 +.tonyhawk.com
@@ -818,7 +776,6 @@
 +.uplay.com
 +.valve.net
 +.valvesoftware.com
-+.videoxiaoyouxi.com
 +.vigorgame.com
 +.visceralgames.com
 +.vrchat.cloud
@@ -837,7 +794,6 @@
 +.wbagora.com
 +.wbgames.com
 +.wbinsights.com
-+.wcbygame.com
 +.wgcdn.co
 +.wgcrowd.io
 +.wii-u.com
@@ -910,16 +866,11 @@
 +.youba.com
 +.yuanshen.com
 +.yugioh-card.com
-+.yxdmgame.com
 +.yxhapi.com
 +.yxhhdl.com
 +.yxhimg.com
-+.yxwsgame.com
-+.yzyxgame.com
-+.zcjbgame.com
 +.zenlesszonezero.com
 +.zhuoyou.com
-+.zhuoyuegame.com
 +.zjshulong.com
 +.zx.com
 +.zynga.com
