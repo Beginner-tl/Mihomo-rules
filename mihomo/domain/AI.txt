@@ -11,6 +11,7 @@
 +.aisandbox-pa.googleapis.com
 +.aistudio.google.com
 +.ant.dev
++.anthropic.ai
 +.anthropic.com
 +.anthropic.team
 +.antigravity-unleash.goog
@@ -43,6 +44,7 @@
 +.claude.new
 +.claude.site
 +.claudeacademy.com
++.claudeai.com
 +.claudemcpclient.com
 +.claudemcpcontent.com
 +.claudepages.dev
@@ -236,7 +238,6 @@ antigravity-unleash.goog
 antigravity.google
 antigravity.googleapis.com
 api-iam.intercom.io
-api.anthropic.com
 api.elevenlabs.io
 api.githubcopilot.com
 api.leonardo.ai
@@ -258,7 +259,6 @@ chat.openai.com
 chat.openai.com.cdn.cloudflare.net
 cloudaicompanion.googleapis.com
 cloudcode-pa.googleapis.com
-console.anthropic.com
 copilot-proxy.githubusercontent.com
 copilot-telemetry-service.githubusercontent.com
 copilot-telemetry.githubusercontent.com
