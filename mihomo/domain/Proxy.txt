@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27647
+# TOTAL: 27648
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -389,6 +389,7 @@
 +.51luoben.com
 +.51luoli.info
 +.51mh.app
++.51papaya.com
 +.51pincha.cc
 +.51tuqiang.com
 +.520aa.tv
