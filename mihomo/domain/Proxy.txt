@@ -1,5 +1,5 @@
 # NAME: Proxy
-# TOTAL: 27648
+# TOTAL: 27657
 # NOTE: derived rule entries
 
 +.000webhost.com
@@ -10573,6 +10573,8 @@
 +.grabhentai.com
 +.grabpussy.com
 +.gradeuptube.com
++.grafana.com
++.grafana.net
 +.grafolio.com
 +.graias.com
 +.graiasmovies.com
@@ -10626,6 +10628,7 @@
 +.gridaware.app
 +.grindr.com
 +.grok.com
++.grokbot.com
 +.grokipedia.com
 +.grooby.com
 +.groq.com
@@ -19243,6 +19246,7 @@
 +.quatrowireless.com
 +.quatrum.com.br
 +.quay.io
++.questionablequesting.com
 +.questvisual.com
 +.quicinc.com
 +.quickbook.com.br
@@ -21236,6 +21240,7 @@
 +.soyjak.party
 +.soyjak.st
 +.sp.cool
++.spacebattles.com
 +.spaceexplored.com
 +.spaceforce.mil
 +.spacely.com.au
@@ -23392,6 +23397,7 @@
 +.v.recipes
 +.v2.help
 +.v2.hysteria.network
++.v2ex.co
 +.v2ex.com
 +.v2fly.org
 +.v2ph.com
@@ -26951,6 +26957,7 @@ hpefonts.s3.amazonaws.com
 hpstore.corpmerchandise.com
 ht.ly
 htl.li
+http-intake.logs.us5.datadoghq.com
 huashangnews.com
 hub.slarker.me
 hulu.playback.edge.bamgrid.com
@@ -27092,6 +27099,7 @@ nvtongzhisheng.org
 nyaa.eu
 nyti.ms
 nytimes.map.fastly.net
+o1158394.ingest.us.sentry.io
 ocsp.int-x3.letsencrypt.org
 ocsp.microsoft.com
 officecdn-microsoft-com.akamaized.net
@@ -27136,6 +27144,7 @@ practivate.adobe.com
 prd-priconne-redive.akamaized.net
 preprod-publicca.googleapis.com
 prodforza.blob.core.windows.net
+production-copilot-host-westus.webpubsub.azure.com
 production-openaicom-storage.azureedge.net
 productionresultssa0.blob.core.windows.net
 productionresultssa1.blob.core.windows.net
