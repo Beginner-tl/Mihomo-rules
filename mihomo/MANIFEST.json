@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-17T23:36:22.696277+00:00",
+  "generated_at": "2026-11-18T23:00:22.692350+00:00",
   "base_rules": {
     "branch": "release",
-    "commit": "7b94ef26ab0581278953420eb402219fbefbe7f6"
+    "commit": "bbc59cebb52b3b865057ebaa64310e44556d4890"
   },
   "mirrored_mrs": 58,
   "mirrored_txt": 58,
@@ -14,7 +14,7 @@
   "mrs_artifacts": [
     {
       "path": "domain/AI.mrs",
-      "bytes": 2966
+      "bytes": 2980
     },
     {
       "path": "domain/Advertising.mrs",
@@ -260,7 +260,7 @@
   "txt_artifacts": [
     {
       "path": "domain/AI.txt",
-      "bytes": 5915
+      "bytes": 5934
     },
     {
       "path": "domain/Advertising.txt",
