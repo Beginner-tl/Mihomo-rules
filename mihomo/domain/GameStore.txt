@@ -1,10 +1,12 @@
 # NAME: GameStore
-# TOTAL: 1004
+# TOTAL: 1007
 # NOTE: derived rule entries
 
 +.100classicbooks.com
 +.17173.com
 +.17173cdn.com
++.1y.com
++.1ycdn.com
 +.2k.com
 +.2kcoretech.online
 +.2kct.onl
@@ -134,6 +136,7 @@
 +.cy.com
 +.cyberpunk.net
 +.cygames.co.jp
++.cygames.com
 +.cygames.jp
 +.daoc.net
 +.darkageofcamelot.com

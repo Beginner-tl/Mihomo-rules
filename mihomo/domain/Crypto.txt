@@ -1,5 +1,5 @@
 # NAME: Crypto
-# TOTAL: 495
+# TOTAL: 496
 # NOTE: base rule entries
 
 +.1inch.io
@@ -142,6 +142,7 @@
 +.curve.fi
 +.cyberx.com
 +.debank.com
++.debot.ai
 +.delets.cash
 +.delets.online
 +.deribit.com
